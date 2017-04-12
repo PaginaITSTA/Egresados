@@ -76,7 +76,7 @@
 		
 		<div class="col m6 s12 input-field">
 			<label class="active validate" for="estudia">¿Estudias actualmente?</label>
-			<select class="browser-default" id="estudia" name="estudia">
+			<select id="estudia" name="estudia">
 				<option value="Si">Si.</option>
 				<option value="No">No.</option>
 			</select>
@@ -98,7 +98,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="queTrabaja">¿Trabaja dentro de su especialidad?</label>
-			<select class="browser-default" id="queTrabaja" name="queTrabaja">
+			<select id="queTrabaja" name="queTrabaja">
 				<option value="Si">Si.</option>
 				<option value="No">No.</option>
 			</select>
@@ -106,7 +106,7 @@
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="sector">¿Sector?</label>
-			<select class="browser-default" id="sector" name="sector">
+			<select id="sector" name="sector">
 				<option value="Publico">Publico.</option>
 				<option value="Privado">Privado.</option>
 			</select>
@@ -116,7 +116,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="puesto">¿Qué puesto ocupa?</label>
-			<select class="browser-default" id="puesto" name="puesto">
+			<select id="puesto" name="puesto">
 				<option value="Operativo">Operativo.</option>
 				<option value="Tecnico">Técnico.</option>
 				<option value="Puesto administrativo">Puesto administrativo.</option>
@@ -136,7 +136,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="organizacion">¿Tamaño de la organización?</label>
-			<select class="browser-default" id="organizacion" name="organizacion">
+			<select id="organizacion" name="organizacion">
 				<option value="Micro">Micro.</option>
 				<option value="Pequenia">Pequeña.</option>
 				<option value="Mediana">Mediana.</option>
@@ -154,5 +154,12 @@
     
     <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../js/materialize.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('select').material_select();
+			$(".button-collapse").sideNav();	
+		});
+	</script>
 </body>
 </html>

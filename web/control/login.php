@@ -16,6 +16,9 @@
 	?>
 	
 	<div class="container">
+	
+	<br><br>
+	
 	<div class="row">
 		<div class="col m3 s12">
 			
@@ -24,13 +27,17 @@
 			<div class="card blue-grey darken-1">
             	<div class="card-content white-text">
               		<span class="card-title">Ingrese por favor.</span>
-              		<div class="row">
-              			<label>Nombre:</label>
-              			<input type="text">
+              		<div class="input-field">
+              			<div class=" row">
+              				<label class="active">Nombre:</label>
+              				<input type="text">
+              			</div>
               		</div>
-              		<div class="row">
-              			<label>Contraseña:</label>
-              			<input type="password">
+              		<div class="input-field">
+              			<div class="row">
+              				<label class="active">Contraseña:</label>
+              				<input type="password">
+              			</div>
               		</div>
             	</div>
             	

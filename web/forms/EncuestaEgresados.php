@@ -10,16 +10,9 @@
 </head>
 
 <body>
-	<nav>
-    	<div class="nav-wrapper container">
-      		<a href="#" class="brand-logo">ITSTA</a>
-      		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a href="sass.html">Sass</a></li>
-        		<li><a href="badges.html">Components</a></li>
-        		<li><a href="collapsible.html">JavaScript</a></li>
-      		</ul>
-    	</div>
-  	</nav>
+	<?php
+		include('../plantillas/navbar.php');
+	?>
   	
 <div class="container">
 	<div>
@@ -31,27 +24,27 @@
 		<table>
   			<tbody>
     		<tr>
-      			<td colspan="2"><div class="row"><div class="col m12 s12">
+      			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="nombre">Nombre:</label>
       				<input id="nombre" name="nombre" type="text">
       			</div></div></td>
       			
-      			<td colspan="1"><div class="row"><div class="col m12 s12">
+      			<td colspan="1"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="carrera">Carrera:</label>
       				<input id="carrera" name="carrera" type="text">
       			</div></div></td>
-      			<td><div class="row"><div class="col m12 s12">
+      			<td><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="generacion">Generación:</label>
       				<input id="generacion" name="generacion" type="text">
       			</div></div></td>
     		</tr>
     		<tr>
-      			<td colspan="2"><div class="row"><div class="col m12 s12">
+      			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="empAct">Empleo actual:</label>
       				<input id="empAct" name="empAct" type="text">
       			</div></div></td>
       			
-      			<td colspan="2"><div class="row"><div class="col m12 s12">
+      			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="giroEmp">Giro de la empresa:</label>
       				<input id="giroEmp" name="giroEmp" type="text">
       			</div></div></td>
@@ -71,7 +64,7 @@
 			<thead>
 			<tr>
 				<th>No.</th>
-				<th>Pregunta</th>
+				<th width="400">Pregunta</th>
 				<th>Respuesta.</th>
 			</tr>
 			</thead>
@@ -80,22 +73,22 @@
 				<tr>
 					<td>1</td>
 					<td><p>¿El equipamiento de los laboratorios y talleres te parecieron?</p></td>
-					<td><input name="" id="" type="text"></td>
+					<td><textarea class="materialize-textarea"></textarea></td>
 				</tr>
 				<tr>
 					<td>2</td>
 					<td><p>¿Los servicios prestados (servicio médico, curso de inducción)?</p></td>
-					<td><input id="" name="" type="text"></td>
+					<td><textarea class="materialize-textarea"></textarea></td>
 				</tr>
 				<tr>
 					<td>3</td>
 					<td><p>¿Sabes que en el ITSTA tenemos un proyecto de bolsa de trabajo y cuál es la opinion acerca del servicio que ofrece?</p></td>
-					<td><input id="" name="" type="text"></td>
+					<td><textarea class="materialize-textarea"></textarea></td>
 				</tr>
 				<tr>
 					<td>4</td>
 					<td><p>En base a esto: ¿Como calificas los servicios básicos que el ITSTA ofrece?</p></td>
-					<td><input id="" name="" type="text"></td>
+					<td><textarea class="materialize-textarea"></textarea></td>
 				</tr>
 			</tbody>
 		</table>
@@ -189,8 +182,19 @@
 	</div>
 	
 </div>
+
+<?php
+	include('../plantillas/footer.php');
+?>
+
 <!-- area  of scripts -->
 <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$('.button-collapse').sideNav();
+	});
+</script>
 </body>
 </html>
