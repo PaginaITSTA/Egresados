@@ -163,26 +163,26 @@
 				
 				<tr>
 					<td><p>11</p></td>
-					<td></td>
-					<td></td>
+					<td><p>¿Qué es lo que si viste en tu carrera y que no te sirve ahora que estas trabajando?</p></td>
+					<td><input id="" name="" type="text"></td>
 				</tr>
 				
 				<tr>
 					<td><p>12</p></td>
-					<td></td>
-					<td></td>
+					<td><p>Consideras que la enseñanza adicional que el ITSTA ofrece (talleres, congresos, diplomados, certificaciones, entre otros), ¿es fundamental en el desempeño de sus actividades ahora que trabajas?</p></td>
+					<td><input id="" name="" type="text"></td>
 				</tr>
 				
 				<tr>
 					<td><p>13</p></td>
-					<td></td>
-					<td></td>
+					<td><p>¿Como calificas el servicio y atención que resiviste el personal del ITSTA durante tu formación?</p></td>
+					<td><input id="" name="" type="text"></td>
 				</tr>
 				
 				<tr>
 					<td><p>14</p></td>
-					<td></td>
-					<td></td>
+					<td><p>En base a lo anterior, ¿Cuál sería tu propuesta para mejorar en este sentido?</p></td>
+					<td><input id="" name="" type="text"></td>
 				</tr>
 			</tbody>
 		</table>
