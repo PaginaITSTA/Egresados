@@ -21,7 +21,7 @@
 	<div class="container">
 	<h1>Datos personales.</h1>
 	
-	<form>
+	<form action="#">
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class=" validate" for="noControl">No. Control:</label>
@@ -114,7 +114,7 @@
 	</div>
 	
 	<div class="row">
-		<div class="col m6 s12 input-field">
+		<div class="col m6 s12 input-field" onMouseMove="otherID()" >
 			<label class="active" for="puesto">¿Qué puesto ocupa?</label>
 			<select id="puesto" name="puesto">
 				<option value="Operativo">Operativo.</option>
@@ -127,13 +127,11 @@
 			</select>
 		</div>
 		
-		<div class="col m6 s12 input-field">
+		<div id="hide" class="col m6 s12 input-field" style="visibility: collapse">
 			<label class="active" for="otro">Otro.</label>
 			<input id="otro" name="otro" type="text">
 		</div>
-	</div>
-	
-	<div class="row">
+		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="organizacion">¿Tamaño de la organización?</label>
 			<select id="organizacion" name="organizacion">
@@ -144,9 +142,15 @@
 			</select>
 		</div>
 	</div>
+	
+	<br><br>
+	<input type="button" value="Ingresar datos">
 	</form>
    
     </div>
+    
+    <br><br>
+    <p id="resultado"></p>
     
     <?php
 		include('../plantillas/footer.php');
@@ -158,8 +162,24 @@
 	<script>
 		$(document).ready(function(){
 			$('select').material_select();
-			$(".button-collapse").sideNav();	
+			$(".button-collapse").sideNav();
+			//$("#organizacion").getPropertyValue()
 		});
+		
+		function otherID(){
+			var x = document.getElementById("puesto").value;
+			
+			var hide = document.getElementById("hide");
+			if(x == "Otro"){
+				//A test to find the value of resultado
+				//document.getElementById("resultado").innerHTML = x;
+				hide.style.visibility = 'visible';
+				hide.value = ' ';
+			}else{
+				hide.style.visibility = 'hidden';
+				hide.value = ' ';
+			}
+		}
 	</script>
 </body>
 </html>
