@@ -127,7 +127,7 @@
 			</select>
 		</div>
 		
-		<div id="hide" class="col m6 s12 input-field" style="visibility: collapse">
+		<div id="hide" class="col m6 s12 input-field" style="visibility: hidden">
 			<label class="active" for="otro">Otro.</label>
 			<input id="otro" name="otro" type="text">
 		</div>
@@ -172,12 +172,10 @@
 			var hide = document.getElementById("hide");
 			if(x == "Otro"){
 				//A test to find the value of resultado
-				//document.getElementById("resultado").innerHTML = x;
 				hide.style.visibility = 'visible';
-				hide.value = ' ';
 			}else{
 				hide.style.visibility = 'hidden';
-				hide.value = ' ';
+				document.getElementById("otro").value = '';
 			}
 		}
 	</script>
