@@ -1,4 +1,4 @@
-<footer class="page-footer">
+<footer class="page-footer #37474f blue-grey darken-3">
    	<div class="container">
 		<div class="row">
 		
@@ -20,7 +20,7 @@
 	</div>
 		<div class="footer-copyright">
 			<div class="container">
-				power by: Aracely Santiago, Erick Clair.
+				Power by: Aracely Santiago, Erick Clair.
 				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
 			</div>
 		</div>

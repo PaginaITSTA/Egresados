@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Ingreso a la aplicación.</title>
 
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
@@ -40,6 +40,7 @@
 		</div>
 		<div class="col s12 m6">
 			<div class="card blue-grey darken-1">
+           	<form action="controlador/control_login.php" method="post">
             	<div class="card-content white-text">
               		<span class="card-title">Ingrese por favor.</span>
               		
@@ -68,8 +69,9 @@
             	</div>
             	
             	<div class="card-action right-align">
-              		<input type="submit" value="Ingresar">
+              		<input class="waves-effect waves-light btn" type="submit" value="Ingresar">
             	</div>
+            </form>
 			</div>
 		</div>
     </div>
