@@ -102,7 +102,7 @@
 		<thead>
 			<tr>
 				<td>No.</td>
-				<td>Pregunta.</td>
+				<td width="400">Pregunta.</td>
 				<td>Respuesta.</td>
 			</tr>
 		</thead>

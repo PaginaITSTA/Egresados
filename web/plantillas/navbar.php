@@ -1,5 +1,5 @@
 <nav>
-	<div class="nav-wrapper">
+	<div class="nav-wrapper #37474f blue-grey darken-3">
 	
 		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">Logo</a>
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>

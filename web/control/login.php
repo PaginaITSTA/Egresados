@@ -11,9 +11,24 @@
 </head>
 
 <body>
-	<?php
-		include('../plantillas/navbar.php');
-	?>
+<nav>
+	<div class="nav-wrapper #37474f blue-grey darken-3">
+	
+		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">ITSTA</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		
+		<ul class="right hide-on-med-and-down">
+			<li><a href="#">Información</a></li>
+			<li><a href="../index.php">Salir</a></li>
+		</ul>
+		
+		<ul class="side-nav" id="mobile-demo">
+			<li><a href="#">Información</a></li>
+			<li><a href="../index.php">Salir</a></li>
+		</ul>
+		
+	</div>
+</nav>
 	
 	<div class="container">
 	
@@ -27,22 +42,33 @@
 			<div class="card blue-grey darken-1">
             	<div class="card-content white-text">
               		<span class="card-title">Ingrese por favor.</span>
+              		
+              		<div class="input-field row">
+              			<label class="active">Tipo de usuario:</label>
+              			<select required>
+              				<option selected>Alumno.</option>
+              				<option>Encargado.</option>
+              				<option>Administrador.</option>
+              			</select>
+              		</div>
+              		
               		<div class="input-field">
-              			<div class=" row">
+              			<div class="row">
               				<label class="active">Nombre:</label>
-              				<input type="text">
+              				<input type="text" class="center-align">
               			</div>
               		</div>
+              		
               		<div class="input-field">
               			<div class="row">
               				<label class="active">Contraseña:</label>
-              				<input type="password">
+              				<input type="password" class="center-align">
               			</div>
               		</div>
             	</div>
             	
-            	<div class="card-action">
-              		<input type="button" value="Ingresar">
+            	<div class="card-action right-align">
+              		<input type="submit" value="Ingresar">
             	</div>
 			</div>
 		</div>
@@ -58,7 +84,8 @@
 	
 	<script>
 		$(document).ready(function(){
-			$(".button-collapse").sideNav();	
+			$(".button-collapse").sideNav();
+			$('select').material_select();
 		});
 	</script>
 </body>

@@ -21,11 +21,11 @@
 	<div class="container">
 	<h1>Datos personales.</h1>
 	
-	<form action="#">
+	<form name="form1" method="post" action="CuestionarioEgresados.php">
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class=" validate" for="noControl">No. Control:</label>
-			<input id="control" name="control" type="text">
+			<input id="control" name="control" type="text" class="validate" required pattern="\d{3}[Z-A]{1}\d{4}">
 		</div>
 		
 		<div class="col m6 s12 input-field">
@@ -144,7 +144,7 @@
 	</div>
 	
 	<br><br>
-	<input type="button" value="Ingresar datos">
+	<input type="submit" value="Ingresar datos">
 	</form>
    
     </div>
