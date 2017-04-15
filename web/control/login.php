@@ -27,6 +27,8 @@
 			<li><a href="../index.php">Salir</a></li>
 		</ul>
 		
+		
+		
 	</div>
 </nav>
 	
@@ -76,6 +78,8 @@
 		</div>
     </div>
 	</div>
+	
+	
 	
 	<?php
 		include('../plantillas/footer.php');
