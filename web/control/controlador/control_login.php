@@ -1,9 +1,6 @@
 <?php
 include('../../src/mx/edu/itsta/DAO/log.php');
 
-$nombre = "Aracely";
-
-echo(login($nombre));
 
 /*
 if((call_user_func('login')) ==){
