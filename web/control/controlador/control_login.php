@@ -1,10 +1,7 @@
 <?php
-include('../../src/mx/edu/itsta/DAO/log.php');
+require "../../src/mx/edu/itsta/DAO/Log.php";
 
-$nombre = "Aracely";
-
-echo(login($nombre));
-
+echo("Hola mundo");
 /*
 if((call_user_func('login')) ==){
 	header('location: ../dashboard.php');
