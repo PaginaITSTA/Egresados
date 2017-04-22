@@ -19,6 +19,8 @@
 		<p>En el Instituto Tecnológico Superior de Tantoyuca, estamos operando el Programa de Seguimiento de Egresados, con el cual buscamos estar informados de la trayectoria de cada uno de nuestros profesionistas, la principal finalidad es conocer sus experiencias profesionales y de desarrollo</p>
 	</div>
 	
+	
+	<form>
 	<!-- Tabla inicial o cabecera -->
 	<div>
 		<table>
@@ -60,7 +62,9 @@
 	<!-- Tabla infraestructura y equipamiento -->
 	<div>
 		<table class="highlight">
-		<p>Infraestructura y equipamiento.</p>
+		
+		<!--Titulo de la tabla -->
+		<h5 align="center">Infraestructura y equipamiento.</h5><br>		
 			<thead>
 			<tr>
 				<th>No.</th>
@@ -96,9 +100,13 @@
 	
 	<br><br>
 	
+	
+	<!--Tabla Formación y conocimiento.-->
 	<div class="table-of-contents">
 		<table class="highlight">
-		<p>Formación y conocimiento.</p>
+		
+		<!--Titulo de la tabla -->
+		<h5 align="center">Formación y conocimiento.</h5><br>
 		<thead>
 			<tr>
 				<td>No.</td>
@@ -137,9 +145,13 @@
 	</div>
 	
 	<br><br>
-	
+	<!-- Tabla Atencion y servicios -->
 	<div class="table-of-contents">
 		<table class="highlight">
+		
+		<!-- Titulo de la tabla -->
+		<h5 align="center">Atención y servicios.</h5><br>
+		
 		<thead>
 			<tr>
 				<td>No.</td>
@@ -180,7 +192,14 @@
 			</tbody>
 		</table>
 	</div>
+	<!-- A couple lines -->
+	<br><br>
 	
+	<!-- Button to send the information -->
+	<div align="right">
+		<button  type="submit" class="waves-effect waves-light btn">Guardar datos<i class="material-icons right">send</i></button>
+	</div>
+	</form>
 </div>
 
 <?php

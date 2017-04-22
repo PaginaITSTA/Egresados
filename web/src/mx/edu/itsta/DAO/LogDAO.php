@@ -11,8 +11,10 @@ class Log
 		
 	}
 	
-	public function login($variable){
+	public function Login($variable){
 	
+		//return("llego a DAO");
+		
 		$user = new operationDB();
 
 		$query = "SELECT * FROM seguimientoegresados.loging;";
@@ -27,11 +29,15 @@ class Log
 			}
 	//echo $fila['nomUsuario']."\t";
 	//echo $fila['tipoUsuario']."<br>";
-		}	
+		}
+		
 	}
 }
-//$nombre = "Aracely";
 
-//echo(login($nombre));
+
+//$clas = new Log();
+
+//echo $clas->Login("Aracely");
+
 //echo($resultado);
 ?> 

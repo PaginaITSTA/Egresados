@@ -47,25 +47,25 @@
               		<span class="card-title">Ingrese por favor.</span>
               		
               		<div class="input-field row">
-              			<label class="active">Tipo de usuario:</label>
-              			<select required>
-              				<option selected>Alumno.</option>
-              				<option>Encargado.</option>
-              				<option>Administrador.</option>
+              			<label class="active" for="login[]">Tipo de usuario:</label>
+              			<select required name="login[]">
+              				<option value="Alumno" selected>Alumno</option>
+              				<option value="Encargado">Encargado</option>
+              				<option value="Administrador">Administrador</option>
               			</select>
               		</div>
               		
               		<div class="input-field">
               			<div class="row">
-              				<label class="active">Nombre:</label>
-              				<input type="text" class="center-align">
+              				<label class="active" for="login[]">Nombre:</label>
+              				<input type="text" class="center-align" name="login[]" required>
               			</div>
               		</div>
               		
               		<div class="input-field">
               			<div class="row">
-              				<label class="active">Contraseña:</label>
-              				<input type="password" class="center-align">
+              				<label for="login[]" class="active">Contraseña:</label>
+              				<input type="password" class="center-align" name="login[]" required>
               			</div>
               		</div>
             	</div>

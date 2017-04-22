@@ -21,62 +21,62 @@
 	<div class="container">
 	<h1>Datos personales.</h1>
 	
-	<form name="form1" method="post" action="CuestionarioEgresados.php">
+	<form name="form1" method="post" action="../control/controlador/controlCuestionarioEgresados.php">
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class=" validate" for="noControl">No. Control:</label>
-			<input id="control" name="control" type="text" class="validate" required pattern="\d{3}[Z-A]{1}\d{4}">
+			<input id="control" name="cuestionarioEgresados[]" type="text" class="validate" required pattern="\d{3}[Z-A]{1}\d{4}">
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label for="carrera">Carrera:</label>
-			<input id="carrera" name="carrera" type="text">
+			<input id="carrera" name="cuestionarioEgresados[]" type="text">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="validate" for="nombre">Nombre:</label>
-			<input id="nombre" name="nombre" type="text">
+			<input id="nombre" name="cuestionarioEgresados[]" type="text">
 		</div>
 		<div class="col m6 s12 input-field">
 			<label class="validate" for="direccion">Dirección:</label>
-			<input id="direccion" name="direccion" type="text">
+			<input id="direccion" name="cuestionarioEgresados[]" type="text">
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="telefono">Teléfono:</label>
-			<input id="telefono" name="telefono" type="text">
+			<input id="telefono" name="cuestionarioEgresados[]" type="text">
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="celular">Teléfono Celular:</label>
-			<input id="celular" name="celular" type="text">
+			<input id="celular" name="cuestionarioEgresados[]" type="text">
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="email">E-mail:</label>
-			<input name="email" id="email" type="text">
+			<input name="cuestionarioEgresados[]" id="email" type="text">
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="pEgreso">P-Egreso:</label>
-			<input id="pEgreso" name="pEgreso" type="text">
+			<input id="pEgreso" name="cuestionarioEgresados[]" type="text">
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="generacion">Generación:</label>
-			<input name="generacón" id="generación" type="text">
+			<input name="cuestionarioEgresados[]" id="generación" type="text">
 		</div>
 		
-		<div class="col m6 s12 input-field">
+		<div class="col m6 s12 input-field" onMouseMove="noEstudia()">
 			<label class="active validate" for="estudia">¿Estudias actualmente?</label>
-			<select id="estudia" name="estudia">
+			<select id="estudia" name="cuestionarioEgresados[]">
 				<option value="Si">Si.</option>
 				<option value="No">No.</option>
 			</select>
@@ -84,21 +84,21 @@
 	</div>
 	
 	<div class="row">
-		<div class="col m6 s12 input-field">
+		<div class="col m6 s12 input-field" id="lblQueEstudia">
 			<label class="active" for="queEstudia">¿Qué estudias?</label>
-			<input name="queEstudia" id="queEstudia" type="text">
+			<input name="cuestionarioEgresados[]" id="queEstudia" type="text">
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label for="empresa">¿En qué empresa trabajas?</label>
-			<input id="empresa" name="empresa" type="text">
+			<input id="empresa" name="cuestionarioEgresados[]" type="text">
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="queTrabaja">¿Trabaja dentro de su especialidad?</label>
-			<select id="queTrabaja" name="queTrabaja">
+			<select id="queTrabaja" name="cuestionarioEgresados[]">
 				<option value="Si">Si.</option>
 				<option value="No">No.</option>
 			</select>
@@ -106,7 +106,7 @@
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="sector">¿Sector?</label>
-			<select id="sector" name="sector">
+			<select id="sector" name="cuestionarioEgresados[]">
 				<option value="Publico">Publico.</option>
 				<option value="Privado">Privado.</option>
 			</select>
@@ -116,7 +116,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field" onMouseMove="otherID()" >
 			<label class="active" for="puesto">¿Qué puesto ocupa?</label>
-			<select id="puesto" name="puesto">
+			<select id="puesto" name="cuestionarioEgresados[]">
 				<option value="Operativo">Operativo.</option>
 				<option value="Tecnico">Técnico.</option>
 				<option value="Puesto administrativo">Puesto administrativo.</option>
@@ -129,12 +129,12 @@
 		
 		<div id="hide" class="col m6 s12 input-field" style="visibility: hidden">
 			<label class="active" for="otro">Otro.</label>
-			<input id="otro" name="otro" type="text">
+			<input id="otro" name="cuestionarioEgresados[]" type="text">
 		</div>
 		
-		<div class="col m6 s12 input-field">
-			<label class="active" for="organizacion">¿Tamaño de la organización?</label>
-			<select id="organizacion" name="organizacion">
+		<div class="col m6 s12 input-field" >
+			<label class="active" for="organizacion" >¿Tamaño de la organización?</label>
+			<select id="organizacion" name="cuestionarioEgresados[]">
 				<option value="Micro">Micro.</option>
 				<option value="Pequenia">Pequeña.</option>
 				<option value="Mediana">Mediana.</option>
@@ -143,8 +143,12 @@
 		</div>
 	</div>
 	
+	<!-- A couple lines -->
 	<br><br>
-	<input type="submit" value="Ingresar datos">
+	
+	<div align="right">
+		<button type="submit" class="waves-effect waves-light btn">Guardar<i class="material-icons right">send</i></button>
+	</div>
 	</form>
    
     </div>
@@ -176,6 +180,18 @@
 			}else{
 				hide.style.visibility = 'hidden';
 				document.getElementById("otro").value = '';
+			}
+		}
+		
+		function noEstudia(){
+			var siNo = document.getElementById("estudia").value;
+			var esconde = document.getElementById("lblQueEstudia");
+			
+			if(siNo == "No"){
+				esconde.style.visibility = 'hidden';
+				document.getElementById("queEstudia").value = '';
+			}else{
+				esconde.style.visibility = 'visible';
 			}
 		}
 	</script>
