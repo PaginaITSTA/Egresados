@@ -12,10 +12,10 @@ require('operaciones.php');
 		//echo "LogDAO es ".$resultado;
 		//return $resultado;
 		//return("llego a DAO");
-		
+		//echo("Llego a DAO");
 		$user = new operationDB();
 
-		$query = "SELECT * FROM seguimientoegresados.loging where nomUsuario = \"".$nomUser."\" and tipoUsuario = \"".$tipoUser."\" and passwordUsuario = \"".$passuser."\";";
+		$query = "SELECT * FROM seguimientoegresados.login where nomUsuario = \"".$nomUser."\" and tipoUsuario = \"".$tipoUser."\" and passwordUsuario = \"".$passuser."\";";
 
 		$user->queryDB($query);
 
