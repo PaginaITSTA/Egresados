@@ -32,10 +32,12 @@ class Controlador{
 		
 	}
 	
-	/*
-	public function traerusuario($user){
-		return();
+	
+	public function cuestionarioEgresados($claseCuestionarioEgresados){
+		//echo "En la clase controlador.php obtenemos el numero de control: ".$claseCuestionarioEgresados->__getSE_noControl();
+		require("Buss.php");
+		claseCuestionarioEgresados($claseCuestionarioEgresados);
 	}
-	*/
+	
 }
 ?>

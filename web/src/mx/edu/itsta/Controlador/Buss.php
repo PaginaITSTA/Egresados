@@ -15,4 +15,11 @@ function validUser($claseLogin){
 	//$resultado = $claseLogin->__getnomUsuario();
 	//echo "resultado en bus es: ".$resultado;
 }
+
+function claseCuestionarioEgresados($claseCuestionarioEgresados){
+	//echo "En la clase negocio.php obtenemos el numero de control: ".$claseCuestionarioEgresados->__getSE_noControl();
+	include("DAOcuestionarioEgresados.php");
+	
+}
+
 ?>
