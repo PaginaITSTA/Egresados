@@ -107,23 +107,34 @@
 		<div class="col m6 s12 input-field">
 			<label class="active" for="sector">¿Sector?</label>
 			<select id="sector" name="cuestionarioEgresados[]">
+			
+			
+			
 				<option value="Publico">Publico.</option>
 				<option value="Privado">Privado.</option>
+			
 			</select>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field" onMouseMove="otherID()" >
+			
 			<label class="active" for="puesto">¿Qué puesto ocupa?</label>
 			<select id="puesto" name="cuestionarioEgresados[]">
-				<option value="Operativo">Operativo.</option>
-				<option value="Tecnico">Técnico.</option>
-				<option value="Puesto administrativo">Puesto administrativo.</option>
-				<option value="Supervisor">Supervisor.</option>
-				<option value="Directiovo">Directivo.</option>
-				<option value="Propietario">Propietario.</option>
-				<option value="Otro">Otro.</option>
+			
+			<?php
+				//guarda en un objeto el arreglo obtenido
+				include "../src/mx/edu/itsta/Controlador/Controlador.php";
+				$claseControlador = new Controlador();
+			$arrayPuestoEmpresa = $claseControlador->puestoEmpresa();
+				//crea los items
+			foreach ($arrayPuestoEmpresa as list($c, $d)) {
+				echo "<option value=\"$d\">$d</option>";
+			}
+				unset($c);
+				unset($d);
+			?>
 			</select>
 		</div>
 		
@@ -135,6 +146,7 @@
 		<div class="col m6 s12 input-field" >
 			<label class="active" for="organizacion" >¿Tamaño de la organización?</label>
 			<select id="organizacion" name="cuestionarioEgresados[]">
+			
 				<option value="Micro">Micro.</option>
 				<option value="Pequenia">Pequeña.</option>
 				<option value="Mediana">Mediana.</option>

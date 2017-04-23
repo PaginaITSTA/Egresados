@@ -32,12 +32,16 @@ class Controlador{
 		
 	}
 	
-	
-	public function cuestionarioEgresados($claseCuestionarioEgresados){
-		//echo "En la clase controlador.php obtenemos el numero de control: ".$claseCuestionarioEgresados->__getSE_noControl();
+	public function sectorEmpresa(){
 		require("Buss.php");
-		claseCuestionarioEgresados($claseCuestionarioEgresados);
+		return BussSectorEmpresa();
 	}
+	
+	public function puestoEmpresa(){
+		require("Buss.php");
+		return BusspuestoEmpresa();
+	}
+	
 	
 }
 ?>

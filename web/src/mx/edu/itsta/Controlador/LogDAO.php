@@ -23,7 +23,6 @@ require('operaciones.php');
 		while ($fila = $user->getRowsDB()) {
 			$int = strcmp($fila['nomUsuario'], $nomUser);
 			if($int === 0){
-				
 				return (0);
 				break;
 			}

@@ -53,6 +53,7 @@ foreach ($_POST['login'] as $key => $value){
 //echo $claseControlador->validaUsuario($claseLogin);
 
 if(($claseControlador->validaUsuario($claseLogin)) === 0){
+	
 	header('location: ../dashboard.php');
 	die();
 }else{

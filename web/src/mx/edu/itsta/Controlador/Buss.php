@@ -16,10 +16,18 @@ function validUser($claseLogin){
 	//echo "resultado en bus es: ".$resultado;
 }
 
-function claseCuestionarioEgresados($claseCuestionarioEgresados){
+function BussSectorEmpresa(){
 	//echo "En la clase negocio.php obtenemos el numero de control: ".$claseCuestionarioEgresados->__getSE_noControl();
 	include("DAOcuestionarioEgresados.php");
 	
+	return sectorEmpresa();
+	
+}
+
+function BusspuestoEmpresa(){
+	include("DAOcuestionarioEgresados.php");
+	
+	return puestoEmpresa();
 }
 
 ?>

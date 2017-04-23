@@ -3,7 +3,7 @@ require('conect.php');
 require('operaciones.php');
 
 function guardarCuestionario($claseCuestionarioEgresados){
-	
+	/*
 	$SE_noControl = $claseCuestionarioEgresados->__getSE_noControl();
 	$SE_carrera = $claseCuestionarioEgresados->__getSE_carrera();
 	$SE_nombre = $claseCuestionarioEgresados->__getSE_nombre();
@@ -26,9 +26,65 @@ function guardarCuestionario($claseCuestionarioEgresados){
 	$query = "inser";
 	
 	$user->queryDB($query);
+	*/
 	
 }
-function extraerselectpuestoOcupa(){
-	return("");
+
+
+function sectorEmpresa(){
+	$user = new operationDB();
+
+	$query = "SELECT * FROM seguimientoegresados.sectorempresa;";
+
+	$user->queryDB($query);
+
+	$SectorEmpresa;
+	$cont = 0;
+	
+	while ($fila = $user->getRowsDB()) {
+		$SectorEmpresa[ $cont ][0] = $fila['id_sector'];
+		$SectorEmpresa[ $cont ][1] = $fila['nom_sector'];
+		$cont ++;
+	}
+	
+	return($SectorEmpresa);	
+}
+
+
+function puestoEmpresa(){
+	$user = new operationDB();
+
+	$query = "SELECT * FROM seguimientoegresados.puestoempresa;";
+
+	$user->queryDB($query);
+
+	$PuestoEmpresa;
+	$int = 0;
+	
+	while ($fila = $user->getRowsDB()) {
+		/*
+		echo("la variable PuestoEmpresa[".$int."] [0] =".$fila['id_puesto']);
+		echo("<br>");
+		echo("la variable PuestoEmpresa[".$int."] [1] =".$fila['nom_puesto']);
+		echo("<br><br>");
+		*/
+		$PuestoEmpresa[ $int ][0] = $fila['id_puesto'];
+		$PuestoEmpresa[ $int ][1] = $fila['nom_puesto'];
+		$int ++;
+		//echo $fila['nomUsuario']."\t";
+		//echo $fila['tipoUsuario']."<br>";
+	}
+	
+	return($PuestoEmpresa);
+	/*
+	echo("<br><br>");
+	echo("<br><br>");
+	
+	foreach ($PuestoEmpresa as list($a, $b)) {
+		echo "Numero es: $a y el valor es: $b";
+		echo("<br>");
+	}
+	*/
+	
 }
 ?>
