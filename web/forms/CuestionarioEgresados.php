@@ -104,15 +104,23 @@
 			</select>
 		</div>
 		
+		<?php
+		include "../src/mx/edu/itsta/Controlador/Controlador.php";
+		$claseControlador = new Controlador();
+		?>
+		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="sector">¿Sector?</label>
 			<select id="sector" name="cuestionarioEgresados[]">
 			
-			
-			
-				<option value="Publico">Publico.</option>
-				<option value="Privado">Privado.</option>
-			
+				<?php
+				$arraySectorEmpresa = $claseControlador->sectorEmpresa();
+				//crea los items
+				foreach ($arraySectorEmpresa as list($a, $b)) {
+					echo "<option value=\"$a\">$b</option>";
+				}
+				?>
+				
 			</select>
 		</div>
 	</div>
@@ -124,17 +132,13 @@
 			<select id="puesto" name="cuestionarioEgresados[]">
 			
 			<?php
-				//guarda en un objeto el arreglo obtenido
-				include "../src/mx/edu/itsta/Controlador/Controlador.php";
-				$claseControlador = new Controlador();
 			$arrayPuestoEmpresa = $claseControlador->puestoEmpresa();
 				//crea los items
 			foreach ($arrayPuestoEmpresa as list($c, $d)) {
 				echo "<option value=\"$d\">$d</option>";
 			}
-				unset($c);
-				unset($d);
 			?>
+			
 			</select>
 		</div>
 		
@@ -146,11 +150,19 @@
 		<div class="col m6 s12 input-field" >
 			<label class="active" for="organizacion" >¿Tamaño de la organización?</label>
 			<select id="organizacion" name="cuestionarioEgresados[]">
-			
+			<?php
+			$arraySizeOrganitation = $claseControlador->sizeOrganitation();
+				//crea los items
+			foreach ($arraySizeOrganitation as list($e, $f)) {
+				echo "<option value=\"$e\">$f</option>";
+			}
+			?>
+			<!--			
 				<option value="Micro">Micro.</option>
 				<option value="Pequenia">Pequeña.</option>
 				<option value="Mediana">Mediana.</option>
 				<option value="Grande">Grande.</option>
+				-->
 			</select>
 		</div>
 	</div>

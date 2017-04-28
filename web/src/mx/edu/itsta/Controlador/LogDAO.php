@@ -2,6 +2,7 @@
 require('conect.php');
 require('operaciones.php');
 
+class DAOLogin{
 	
 	function Login($claseLogin){
 		
@@ -9,10 +10,9 @@ require('operaciones.php');
 		$nomUser = $claseLogin->__getnomUsuario();
 		$passuser = $claseLogin->__getPass();
 		
-		//echo "LogDAO es ".$resultado;
-		//return $resultado;
-		//return("llego a DAO");
-		//echo("Llego a DAO");
+		//echo("Los valores que llegaron son: $tipoUser y tambien $nomUser y tambien $passuser");
+		
+		
 		$user = new operationDB();
 
 		$query = "SELECT * FROM seguimientoegresados.login where nomUsuario = \"".$nomUser."\" and tipoUsuario = \"".$tipoUser."\" and passwordUsuario = \"".$passuser."\";";
@@ -23,18 +23,19 @@ require('operaciones.php');
 		while ($fila = $user->getRowsDB()) {
 			$int = strcmp($fila['nomUsuario'], $nomUser);
 			if($int === 0){
+				$user->closedb();
+				unset($user);
 				return (0);
 				break;
 			}
-	//echo $fila['nomUsuario']."\t";
-	//echo $fila['tipoUsuario']."<br>";
 		}
+		$user->closedb();
+		unset($user);
+		
 		return(1);
 		
 	}
 
+}
 
-//$clas = new Log();
-
-//echo $clas->Login("Aracely");
 ?> 

@@ -1,23 +1,32 @@
 <?php
+echo("Entro A LA CLASE");
+require "DAOcuestionarioEgresados.php";
+echo("ACCESO AL REQUIRE");
+$class = new DAOCuestionario();
 
-require("DAOcuestionarioEgresados.php");
+echo("PASO DEL OBJETO");
 
+$arr = $class->organitationSize();
 
-//puestoEmpresa();
+echo("ANTES DE ENTRAR AL FOREACH");
 
-
-$array = sectorEmpresa();
-
-foreach ($array as list($a, $b)) {
-	echo "Test Numero es: $a y el valor es: $b";
-	echo("<br>");
+echo "<br>";
+foreach($arr as list($a, $b)){
+	echo "primer: ".$a.", segundo: ".$b;
+	echo "<br>";
 }
+/*
+unset($arr, $a, $b);
 
+echo("<br>");
+$arr = $class->BussSectorEmpresa();
 
-$array2 = puestoEmpresa();
+echo("ANTES DE ENTRAR AL FOREACH");
 
-foreach ($array2 as list($c, $d)) {
-	echo "Test Numero es: $c y el valor es: $d";
-	echo("<br>");
+echo "<br>";
+foreach($arr as list($a, $b)){
+	echo "primer: ".$a.", segundo: ".$b;
+	echo "<br>";
 }
+*/
 ?>

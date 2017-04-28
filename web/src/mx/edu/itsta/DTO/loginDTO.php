@@ -4,14 +4,6 @@ class Login{
 	private $tipoUsuario = "tipoDefault";
 	private $pass = "passDefault";
 	
-	/*
-	function __contruct($nomUsuario, $tipoUsuario, $pass){
-		$this->nomUsuario = $nomUsuario;
-		$this->tipoUsuario = $tipoUsuario;
-		$this->pass = $pass;
-	}
-	*/
-	
 	function __contruct(){
 		
 	}

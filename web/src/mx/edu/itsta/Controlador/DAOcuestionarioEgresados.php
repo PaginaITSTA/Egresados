@@ -2,7 +2,15 @@
 require('conect.php');
 require('operaciones.php');
 
+class DAOCuestionario{
+	
+	
+	function __contruct(){
+		
+	}
+
 function guardarCuestionario($claseCuestionarioEgresados){
+	
 	/*
 	$SE_noControl = $claseCuestionarioEgresados->__getSE_noControl();
 	$SE_carrera = $claseCuestionarioEgresados->__getSE_carrera();
@@ -21,17 +29,12 @@ function guardarCuestionario($claseCuestionarioEgresados){
 	$SE_puestoTrabajo = $claseCuestionarioEgresados->__getSE_puestoTrabajo();
 	$SE_tamanoEmpresa = $claseCuestionarioEgresados->__getSE_tamanoEmpresa();
 	
-	$user = new operationDB();
-
-	$query = "inser";
 	
-	$user->queryDB($query);
 	*/
 	
 }
 
-
-function sectorEmpresa(){
+public function sectorEmpresa(){
 	$user = new operationDB();
 
 	$query = "SELECT * FROM seguimientoegresados.sectorempresa;";
@@ -46,12 +49,13 @@ function sectorEmpresa(){
 		$SectorEmpresa[ $cont ][1] = $fila['nom_sector'];
 		$cont ++;
 	}
+	$user->closedb();
 	
 	return($SectorEmpresa);	
 }
 
 
-function puestoEmpresa(){
+public function puestoEmpresa(){
 	$user = new operationDB();
 
 	$query = "SELECT * FROM seguimientoegresados.puestoempresa;";
@@ -62,29 +66,33 @@ function puestoEmpresa(){
 	$int = 0;
 	
 	while ($fila = $user->getRowsDB()) {
-		/*
-		echo("la variable PuestoEmpresa[".$int."] [0] =".$fila['id_puesto']);
-		echo("<br>");
-		echo("la variable PuestoEmpresa[".$int."] [1] =".$fila['nom_puesto']);
-		echo("<br><br>");
-		*/
 		$PuestoEmpresa[ $int ][0] = $fila['id_puesto'];
 		$PuestoEmpresa[ $int ][1] = $fila['nom_puesto'];
 		$int ++;
-		//echo $fila['nomUsuario']."\t";
-		//echo $fila['tipoUsuario']."<br>";
 	}
+	$user->closedb();
 	
 	return($PuestoEmpresa);
-	/*
-	echo("<br><br>");
-	echo("<br><br>");
-	
-	foreach ($PuestoEmpresa as list($a, $b)) {
-		echo "Numero es: $a y el valor es: $b";
-		echo("<br>");
-	}
-	*/
 	
 }
+	
+	public function organitationSize(){
+		$user = new operationDB();
+		$query = "select * from seguimientoegresados.sizeorganitation;";
+		$user->queryDB($query);
+		
+		$sizeOrganitation;
+		$int2 = 0;
+		
+		while($fila = $user->getRowsDB()){
+			$sizeOrganitation[ $int2 ] [0] = $fila['id_tamano'];
+			$sizeOrganitation[ $int2 ] [1] = $fila['nom_tamano'];
+			$int2++;
+		}
+		$user->closedb();
+		
+		return($sizeOrganitation);
+	}
+}
+
 ?>

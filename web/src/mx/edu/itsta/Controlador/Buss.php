@@ -1,33 +1,41 @@
 <?php
 
-function validUser($claseLogin){
-	//Incluye la URL a una variable 
-	$path = "LogDAO.php";
-	//Comprueba la URL
-	//echo "path : $path";
-	//Incluye el archivo en esta clase
-	include $path;
-	//Convierte la clase en un objeto
-	//$clas = new Log();
-	return Login($claseLogin);
-	//return($clas->Login($claseLogin));
-	
-	//$resultado = $claseLogin->__getnomUsuario();
-	//echo "resultado en bus es: ".$resultado;
-}
+require("DAOcuestionarioEgresados.php");
 
-function BussSectorEmpresa(){
-	//echo "En la clase negocio.php obtenemos el numero de control: ".$claseCuestionarioEgresados->__getSE_noControl();
-	include("DAOcuestionarioEgresados.php");
+class Buss{
 	
-	return sectorEmpresa();
+	private static $classDAOCE;
 	
-}
+	
+	public function __construct(){
+		$this->classDAOCE = new DAOCuestionario();
+	}
+		
+	public function validUser($claseLogin){
+		$temp = $claseLogin;
+		
+		unset($classDAOCE);
+		require("LogDAO.php");
+		$this->classDAOCE = new DAOLogin();
+		
+		return $classDAOCE->Login($temp);
+		
+	}
 
-function BusspuestoEmpresa(){
-	include("DAOcuestionarioEgresados.php");
-	
-	return puestoEmpresa();
-}
+	public function BussSectorEmpresa(){
+		$arrTemp = $this->classDAOCE->sectorEmpresa();
+		return $arrTemp;
+	}
 
+	public function BusspuestoEmpresa(){
+		$temp = $this->classDAOCE;
+		$arrTemp = $temp->puestoEmpresa();
+		return $arrTemp;
+	}
+	
+	public function BussSizeOrganitation(){
+		$arrTemp = $this->classDAOCE->organitationSize();
+		return $arrTemp;
+	}
+}
 ?>
