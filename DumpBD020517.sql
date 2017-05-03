@@ -35,7 +35,7 @@ CREATE TABLE `carrera` (
 
 LOCK TABLES `carrera` WRITE;
 /*!40000 ALTER TABLE `carrera` DISABLE KEYS */;
-INSERT INTO `carrera` VALUES (1,'Agronomía'),(6,'Contabilidad'),(2,'Electrónica '),(5,'Gestión '),(3,'Industrial'),(8,'Mecatrónica'),(7,'Petrolera'),(4,'Sistemas');
+INSERT INTO `carrera` VALUES (1,'Agronomía'),(9,'Ambiental'),(6,'Contabilidad'),(2,'Electrónica '),(5,'Gestión '),(3,'Industrial'),(8,'Mecatrónica'),(7,'Petrolera'),(4,'Sistemas');
 /*!40000 ALTER TABLE `carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,8 +52,8 @@ CREATE TABLE `datosalumnos` (
   `SE_carrera` varchar(15) DEFAULT NULL,
   `SE_nombre` varchar(50) DEFAULT NULL,
   `SE_direccion` varchar(60) DEFAULT NULL,
-  `SE_telefono` int(10) DEFAULT NULL,
-  `SE_telMovil` int(10) DEFAULT NULL,
+  `SE_telefono` varchar(12) NOT NULL,
+  `SE_telMovil` varchar(12) DEFAULT NULL,
   `SE_email` varchar(30) DEFAULT NULL,
   `SE_pEgreso` varchar(80) DEFAULT NULL,
   `SE_generacion` varchar(9) DEFAULT NULL,
@@ -64,16 +64,19 @@ CREATE TABLE `datosalumnos` (
   `SE_sectorTrabajo` varchar(8) DEFAULT NULL,
   `SE_puestoTrabajo` varchar(30) DEFAULT NULL,
   `SE_tamanoEmpresa` varchar(10) DEFAULT NULL,
-  `id_login` int(11) DEFAULT NULL,
+  `idloginAlumno` int(11) DEFAULT NULL,
+  `idloginEncargado` int(11) DEFAULT NULL,
   PRIMARY KEY (`iddatosAlumnos`),
   KEY `SE_carrera_idx` (`SE_carrera`),
   KEY `SE_sectorTrabajo_idx` (`SE_sectorTrabajo`),
   KEY `SE_tamanoEmpresa_idx` (`SE_tamanoEmpresa`),
-  KEY `id_login_idx` (`id_login`),
+  KEY `idloginAlumno_idx` (`idloginAlumno`),
+  KEY `idloginEncargado_idx` (`idloginEncargado`),
   CONSTRAINT `SE_carrera` FOREIGN KEY (`SE_carrera`) REFERENCES `carrera` (`nom_carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `SE_sectorTrabajo` FOREIGN KEY (`SE_sectorTrabajo`) REFERENCES `sectorempresa` (`nom_sector`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `SE_tamanoEmpresa` FOREIGN KEY (`SE_tamanoEmpresa`) REFERENCES `tamañoempresa` (`nom_tamano`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_login` FOREIGN KEY (`id_login`) REFERENCES `login` (`id_login`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `SE_tamanoEmpresa` FOREIGN KEY (`SE_tamanoEmpresa`) REFERENCES `sizeorganitation` (`nom_tamano`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idloginAlumno` FOREIGN KEY (`idloginAlumno`) REFERENCES `login_alumno` (`idloginAlumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idloginEncargado` FOREIGN KEY (`idloginEncargado`) REFERENCES `login_encargado` (`idloginEncargado`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,34 +86,83 @@ CREATE TABLE `datosalumnos` (
 
 LOCK TABLES `datosalumnos` WRITE;
 /*!40000 ALTER TABLE `datosalumnos` DISABLE KEYS */;
-INSERT INTO `datosalumnos` VALUES (1,'133S0123','Sistemas','Abraham García Santiago','call. independencia S/N colonia Ruiz cortinez',2147483647,2147483647,'abraham@gmail.com','ingeniero en sistemas computacionales','2013-2018','no',NULL,'Appmed Servicios de Consultoría','si','Privado','Operativo','Mediana',NULL);
+INSERT INTO `datosalumnos` VALUES (1,'133S0123','Sistemas','Abraham García Santiago','call. independencia S/N colonia Ruiz cortinez','7891205678','2147483647','abraham@gmail.com','ingeniero en sistemas computacionales','2013-2018','no',NULL,'Appmed Servicios de Consultoría','si','Privado','Operativo','Mediana',NULL,NULL),(2,'124E0456','Electrónica','Erasto Aeteaga del angel','calle Bahía Blanca Monterrey Nuevo leon','7439856437','8975497845','erasto@gmail.com','Ingeniero electronico','2010-2014','no',NULL,'Samsung Electronics','si','público','Técnico','Grande',NULL,NULL),(3,'133P0234','Petrolera','Horacio Cruz feliciano','Cerro Azul','9394572538','2846473634','horacio@gmail.com','Ingeniero petrolero','2011-2015','no',NULL,'Pemex','si','Privado','Puesto administrativo','Grande',NULL,NULL);
 /*!40000 ALTER TABLE `datosalumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `login`
+-- Table structure for table `login_admin`
 --
 
-DROP TABLE IF EXISTS `login`;
+DROP TABLE IF EXISTS `login_admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `login` (
-  `id_login` int(11) NOT NULL,
-  `nomUsuario` varchar(20) NOT NULL,
-  `tipoUsuario` varchar(20) NOT NULL,
-  `passwordUsuario` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_login`)
+CREATE TABLE `login_admin` (
+  `idloginAdmin` int(11) NOT NULL,
+  `usuarioAdmin` varchar(45) DEFAULT NULL,
+  `contraseñaAdmin` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idloginAdmin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login`
+-- Dumping data for table `login_admin`
 --
 
-LOCK TABLES `login` WRITE;
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES (1,'Aracely','Alumno','1'),(2,'Clair','Encargado','1'),(3,'Erick','Administrador','1');
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+LOCK TABLES `login_admin` WRITE;
+/*!40000 ALTER TABLE `login_admin` DISABLE KEYS */;
+INSERT INTO `login_admin` VALUES (1,'Erick','1'),(2,'Aracely','1');
+/*!40000 ALTER TABLE `login_admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login_alumno`
+--
+
+DROP TABLE IF EXISTS `login_alumno`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login_alumno` (
+  `idloginAlumno` int(11) NOT NULL,
+  `usuarioAlumno` varchar(45) DEFAULT NULL,
+  `contraseñaAlumno` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idloginAlumno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login_alumno`
+--
+
+LOCK TABLES `login_alumno` WRITE;
+/*!40000 ALTER TABLE `login_alumno` DISABLE KEYS */;
+INSERT INTO `login_alumno` VALUES (1,'Rosa','1'),(2,'Rodrigo','1'),(3,'Erasto','1'),(4,'Abraham','1');
+/*!40000 ALTER TABLE `login_alumno` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login_encargado`
+--
+
+DROP TABLE IF EXISTS `login_encargado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login_encargado` (
+  `idloginEncargado` int(11) NOT NULL,
+  `usuarioEncargado` varchar(45) DEFAULT NULL,
+  `contraseñaEncargado` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idloginEncargado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login_encargado`
+--
+
+LOCK TABLES `login_encargado` WRITE;
+/*!40000 ALTER TABLE `login_encargado` DISABLE KEYS */;
+INSERT INTO `login_encargado` VALUES (1,'JesusOrtiz','1');
+/*!40000 ALTER TABLE `login_encargado` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -226,13 +278,13 @@ INSERT INTO `sectorempresa` VALUES (2,'Privado'),(1,'Público');
 UNLOCK TABLES;
 
 --
--- Table structure for table `tamañoempresa`
+-- Table structure for table `sizeorganitation`
 --
 
-DROP TABLE IF EXISTS `tamañoempresa`;
+DROP TABLE IF EXISTS `sizeorganitation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tamañoempresa` (
+CREATE TABLE `sizeorganitation` (
   `id_tamano` int(1) NOT NULL,
   `nom_tamano` varchar(10) NOT NULL,
   PRIMARY KEY (`nom_tamano`)
@@ -240,13 +292,13 @@ CREATE TABLE `tamañoempresa` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tamañoempresa`
+-- Dumping data for table `sizeorganitation`
 --
 
-LOCK TABLES `tamañoempresa` WRITE;
-/*!40000 ALTER TABLE `tamañoempresa` DISABLE KEYS */;
-INSERT INTO `tamañoempresa` VALUES (4,'Grande'),(3,'Mediana'),(1,'Micro'),(2,'Pequeña');
-/*!40000 ALTER TABLE `tamañoempresa` ENABLE KEYS */;
+LOCK TABLES `sizeorganitation` WRITE;
+/*!40000 ALTER TABLE `sizeorganitation` DISABLE KEYS */;
+INSERT INTO `sizeorganitation` VALUES (4,'Grande'),(3,'Mediana'),(1,'Micro'),(2,'Pequeña');
+/*!40000 ALTER TABLE `sizeorganitation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -258,4 +310,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-26 20:48:52
+-- Dump completed on 2017-05-02 22:55:55
