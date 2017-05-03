@@ -26,8 +26,8 @@ class Buss{
 		$this->classLogin = new DAOLogin();
 		$this->classDAOEE = new DAOEncuestaEgresados();
 		
+		//Coneccion a la base de datos
 		$this->user = new operationDB();
-		
 	}
 		
 	//Valida al usuario
@@ -58,6 +58,21 @@ class Buss{
 	
 	//---------------------------------------------------------------------------
 	//Metodos de la clase Encuesta egresados
+	public function BussGetTabla1(){
+		$arrTemp = $this->classDAOEE->sectorEmpresa($this->user);
+		return $arrTemp;
+	}
+	
+	public function BussGetTabla2(){
+		$arrTemp = $this->classDAOEE->sectorEmpresa($this->user);
+		return $arrTemp;
+	}
+	
+	public function BussGetTabla3(){
+		$arrTemp = $this->classDAOEE->sectorEmpresa($this->user);
+		return $arrTemp;
+	}
+	
 	//---------------------------------------------------------------------------
 }
 ?>

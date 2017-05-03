@@ -1,6 +1,6 @@
 <?php
 class connectionDB{
-	
+
 	private $host = "localhost";
 	private $user = "root";
 	private $password = "erick";

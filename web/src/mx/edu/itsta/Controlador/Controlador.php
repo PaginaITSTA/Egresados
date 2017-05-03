@@ -39,17 +39,17 @@ class Controlador{
 	//Tabla uno de la clase Encuesta egresados
 	public function getTabla1(){
 		$classBuss = new Buss();
-		return $classBuss->BussSectorEmpresa();
+		return $classBuss->BussGetTabla1();
 	}
 	//Tabla uno de la clase Encuesta egresados
 	public function getTabla2(){
 		$classBuss = new Buss();
-		return $classBuss->BussSectorEmpresa();
+		return $classBuss->BussGetTabla2();
 	}
 	//Tabla uno de la clase Encuesta egresados
 	public function getTabla3(){
 		$classBuss = new Buss();
-		return $classBuss->BussSectorEmpresa();
+		return $classBuss->BussGetTabla3();
 	}
 }
 ?>
