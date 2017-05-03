@@ -10,28 +10,35 @@ class DAOCuestionario{
 		
 	}
 
-function guardarCuestionario($claseCuestionarioEgresados){
+	function guardarCuestionario($claseCuestionarioEgresados, $conection){
 	
-	/*
-	$SE_noControl = $claseCuestionarioEgresados->__getSE_noControl();
-	$SE_carrera = $claseCuestionarioEgresados->__getSE_carrera();
-	$SE_nombre = $claseCuestionarioEgresados->__getSE_nombre();
-	$SE_direccion = $claseCuestionarioEgresados->__getSE_direccion();
-	$SE_telefono = $claseCuestionarioEgresados->__getSE_telefono();
-	$SE_telMovil = $claseCuestionarioEgresados->__getSE_telMovil();
-	$SE_email = $claseCuestionarioEgresados->__getSE_email();
-	$SE_pEgreso = $claseCuestionarioEgresados->__getSE_pEgreso();
-	$SE_generacion = $claseCuestionarioEgresados->_getSE_generacion();
-	$SE_estudia = $claseCuestionarioEgresados->__getSE_estudia();
-	$SE_estudioActual = $claseCuestionarioEgresados->__getSE_estudioActual();
-	$SE_empresaTrabajo = $claseCuestionarioEgresados->__getSE_empresaTrabajo();
-	$SE_trabajoEspecialidad = $claseCuestionarioEgresados->__getSE_trabajoEspecialidad();
-	$SE_sectorTrabajo = $claseCuestionarioEgresados->__getSE_sectorTrabajo();
-	$SE_puestoTrabajo = $claseCuestionarioEgresados->__getSE_puestoTrabajo();
-	$SE_tamanoEmpresa = $claseCuestionarioEgresados->__getSE_tamanoEmpresa();
+		$SE_noControl = $claseCuestionarioEgresados->__getSE_noControl();
+		$SE_carrera = $claseCuestionarioEgresados->__getSE_carrera();
+		$SE_nombre = $claseCuestionarioEgresados->__getSE_nombre();
+		$SE_direccion = $claseCuestionarioEgresados->__getSE_direccion();
+		$SE_telefono = $claseCuestionarioEgresados->__getSE_telefono();
+		$SE_telMovil = $claseCuestionarioEgresados->__getSE_telMovil();
+		$SE_email = $claseCuestionarioEgresados->__getSE_email();
+		$SE_pEgreso = $claseCuestionarioEgresados->__getSE_pEgreso();
+		$SE_generacion = $claseCuestionarioEgresados->_getSE_generacion();
+		$SE_estudia = $claseCuestionarioEgresados->__getSE_estudia();
+		$SE_estudioActual = $claseCuestionarioEgresados->__getSE_estudioActual();
+		$SE_empresaTrabajo = $claseCuestionarioEgresados->__getSE_empresaTrabajo();
+		$SE_trabajoEspecialidad = $claseCuestionarioEgresados->__getSE_trabajoEspecialidad();
+		$SE_sectorTrabajo = $claseCuestionarioEgresados->__getSE_sectorTrabajo();
+		$SE_puestoTrabajo = $claseCuestionarioEgresados->__getSE_puestoTrabajo();
+		$SE_tamanoEmpresa = $claseCuestionarioEgresados->__getSE_tamanoEmpresa();
 	
+	 	//Connection
+		$user = $conection;
+
+		//Start transaction
+		$user->queryDB("START TRANSACTION");
+		$a = $user->query("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '2147483647', '2147483647', 'ceidy@gmail.com', 'Contador público', '2004-2008', 'no', 'Banorte', 'si', '2', '1', '3');");
+		
+		$user->closedb();
 	
-	*/
+		return($PuestoEmpresa);
 	
 }
 

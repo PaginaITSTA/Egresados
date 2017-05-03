@@ -32,7 +32,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class=" validate" for="noControl">No. Control:</label>
-			<input id="control" size="8" name="cuestionarioEgresados[]" type="text" required>
+			<input id="noControl" size="8" name="cuestionarioEgresados[]" type="text" required>
 		</div>
 		
 		<div class="col m6 s12 input-field">
@@ -74,19 +74,19 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="email">E-mail:</label>
-			<input name="cuestionarioEgresados[]" id="email" type="text">
+			<input name="cuestionarioEgresados[]" id="email" type="email" size="30">
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="pEgreso">P-Egreso:</label>
-			<input id="pEgreso" name="cuestionarioEgresados[]" type="text">
+			<input id="pEgreso" name="cuestionarioEgresados[]" type="text" size="30">
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="generacion">Generación:</label>
-			<input name="cuestionarioEgresados[]" id="generación" type="text">
+			<input name="cuestionarioEgresados[]" id="generación" type="text" size="9">
 		</div>
 		
 		<div class="col m6 s12 input-field" onMouseMove="noEstudia()">
@@ -101,12 +101,12 @@
 	<div class="row">
 		<div class="col m6 s12 input-field" id="lblQueEstudia">
 			<label class="active" for="queEstudia">¿Qué estudias?</label>
-			<input name="cuestionarioEgresados[]" id="queEstudia" type="text">
+			<input name="cuestionarioEgresados[]" id="queEstudia" type="text" size="50">
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label for="empresa">¿En qué empresa trabajas?</label>
-			<input id="empresa" name="cuestionarioEgresados[]" type="text">
+			<input id="empresa" name="cuestionarioEgresados[]" type="text" size="45">
 		</div>
 	</div>
 	
@@ -156,7 +156,7 @@
 		
 		<div id="hide" class="col m6 s12 input-field" style="visibility: hidden">
 			<label class="active" for="otro">Otro.</label>
-			<input id="otro" name="cuestionarioEgresados[]" type="text">
+			<input id="otro" name="cuestionarioEgresados[]" type="text" size="40">
 		</div>
 		
 		<div class="col m6 s12 input-field" >
@@ -169,12 +169,6 @@
 				echo "<option value=\"$e\">$f</option>";
 			}
 			?>
-			<!--			
-				<option value="Micro">Micro.</option>
-				<option value="Pequenia">Pequeña.</option>
-				<option value="Mediana">Mediana.</option>
-				<option value="Grande">Grande.</option>
-				-->
 			</select>
 		</div>
 	</div>

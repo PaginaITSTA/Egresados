@@ -5,14 +5,17 @@ class cuestionarioEgresados{
 	private $SE_carrera = "";
 	private $SE_nombre = "";
 	private $SE_direccion = "";
+	
 	private $SE_telefono = "";
 	private $SE_telMovil = "";
 	private $SE_email = "";
 	private $SE_pEgreso = "";
+	
 	private $SE_generacion = "";
 	private $SE_estudia = "";
 	private $SE_estudioActual = "";
 	private $SE_empresaTrabajo = "";
+	
 	private $SE_trabajoEspecialidad = "";
 	private $SE_sectorTrabajo = "";
 	private $SE_puestoTrabajo = "";

@@ -31,7 +31,6 @@ class Buss{
 		
 		//Coneccion a la base de datos
 		$this->user = new operationDB();
-		
 	}
 		
 	//Valida al usuario
@@ -42,6 +41,12 @@ class Buss{
 	
 	//---------------------------------------------------------------------------
 	//Metodos de la clase Cuestionario egresados
+	
+	public function BussGuardaCuestionario($claseCE){
+		$temp = $claseCE;
+		$this->classDAOCE->guardaCuestionario($temp, $this->user);
+	}
+	
 	public function BussSectorEmpresa(){
 		$arrTemp = $this->classDAOCE->sectorEmpresa($this->user);
 		return $arrTemp;

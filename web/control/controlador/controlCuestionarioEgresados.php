@@ -18,12 +18,22 @@ $ClaseCuestionario->__setSE_pEgreso($arrayCuestionario[7]);
 $ClaseCuestionario->__setSE_generacion($arrayCuestionario[8]);
 $ClaseCuestionario->__setSE_estudia($arrayCuestionario[9]);
 
+if($arrayCuestionario[9] === "No"){
+	$ClaseCuestionario->__setSE_estudioActual("");
+}else{
+	$ClaseCuestionario->__setSE_estudioActual($arrayCuestionario[10]);
+}
 
-$ClaseCuestionario->__setSE_estudioActual($arrayCuestionario[10]);
 $ClaseCuestionario->__setSE_empresaTrabajo($arrayCuestionario[11]);
 $ClaseCuestionario->__setSE_trabajoEspecialidad($arrayCuestionario[12]);
 $ClaseCuestionario->__setSE_sectorTrabajo($arrayCuestionario[13]);
-$ClaseCuestionario->__setSE_puestoTrabajo($arrayCuestionario[14]);
+
+
+if($arrayCuestionario[14] === "Otro"){
+	$ClaseCuestionario->__setSE_puestoTrabajo($arrayCuestionario[15]);
+}else{
+	$ClaseCuestionario->__setSE_puestoTrabajo($arrayCuestionario[14]);
+}
 
 
 $ClaseCuestionario->__setSE_tamanoEmpresa($arrayCuestionario[15]);
