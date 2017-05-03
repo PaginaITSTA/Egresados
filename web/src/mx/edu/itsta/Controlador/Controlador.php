@@ -1,13 +1,14 @@
 <?php
 
 require("Buss.php");
+header("Content-Type: text/html;charset=utf-8");
 
 class Controlador{
 	
 	public function __contruct(){
 	}
 
-	
+	//---------------------------------------------------------------------------
 	//Validación del usuario de la clase Login
 	public function validaUsuario($claseLogin){
 		$temp = $claseLogin;
@@ -15,9 +16,11 @@ class Controlador{
 		return $classBuss->validUser($temp);
 		
 	}
+	//---------------------------------------------------------------------------
 	
 	
 	
+	//---------------------------------------------------------------------------
 	//Select de la clase Cuestionario egresados
 	public function sectorEmpresa(){
 		$classBuss = new Buss();
@@ -33,25 +36,21 @@ class Controlador{
 		$classBuss = new Buss();
 		return $classBuss->BussSizeOrganitation();
 	}
+	//Select de la clase Cuestionario egresados
+	public function carreras(){
+		$classBuss = new Buss();
+		return $classBuss->BussCarreras();
+	}
+	//---------------------------------------------------------------------------
 	
 	
 	
+	//---------------------------------------------------------------------------
 	//Tabla uno de la clase Encuesta egresados
 	public function getTabla1(){
 		$classBuss = new Buss();
 		return $classBuss->BussGetTabla1();
 	}
-	//Tabla uno de la clase Encuesta egresados
-	/*
-	public function getTabla2(){
-		$classBuss = new Buss();
-		return $classBuss->BussGetTabla2();
-	}
-	//Tabla uno de la clase Encuesta egresados
-	public function getTabla3(){
-		$classBuss = new Buss();
-		return $classBuss->BussGetTabla3();
-	}
-	*/
+	//---------------------------------------------------------------------------
 }
 ?>

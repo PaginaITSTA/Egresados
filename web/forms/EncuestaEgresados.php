@@ -1,7 +1,9 @@
 <!doctype html>
 <html>
 <head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta charset="utf-8">
+
 <title>Encuesta para egresados.</title>
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
@@ -91,7 +93,7 @@
 					echo "<tr>";
 						echo "<td>$a</td>";
 						echo "<td><p>$b</p></td>";
-						echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
+						echo "<td><textarea name=\"arrayCuestionario[]\" class=\"materialize-textarea\"></textarea></td>";
 					echo "</tr>";
 					
 					if($int === 4){
@@ -134,7 +136,7 @@
 						echo "<tr>";
 							echo "<td>$a</td>";
 							echo "<td><p>$b</p></td>";
-							echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
+							echo "<td><textarea name=\"arrayCuestionario[]\" class=\"materialize-textarea\"></textarea></td>";
 						echo "</tr>";
 					}
 					
@@ -161,8 +163,8 @@
 		<thead>
 			<tr>
 				<td>No.</td>
-				<td class="col m6 s12">Pregunta</td>
-				<td class="col m4 s12">Respuesta</td>
+				<td width="400">Pregunta</td>
+				<td >Respuesta</td>
 			</tr>
 		</thead>
 			<tbody>
@@ -175,7 +177,7 @@
 						echo "<tr>";
 							echo "<td>$a</td>";
 							echo "<td><p>$b</p></td>";
-							echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
+							echo "<td><textarea name=\"arrayCuestionario[]\" class=\"materialize-textarea\"></textarea></td>";
 						echo "</tr>";
 					}
 					$int++;

@@ -50,6 +50,7 @@ class connectionDB{
 	function connectDataBase(){
 		$this->connection = mysql_connect($this->getHost(),$this->getUser(),$this->getPassword())
 			or die('No se pudo conectar \n' . mysql_error());
+		mysql_query("SET NAMES 'utf8'");
 		//print ("Conected corretamente. \n </br>");
 		$result = mysql_select_db($this->getDataBase(),$this->getConnection()) or die('No se pudo seleccionar la base de datos');
 		/*

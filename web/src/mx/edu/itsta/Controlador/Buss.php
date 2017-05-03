@@ -8,6 +8,9 @@ require("DAOcuestionarioEgresados.php");
 require("LogDAO.php");
 require("DAOencuestaEgresados.php");
 
+
+header("Content-Type: text/html;charset=utf-8");
+
 class Buss{
 	
 	
@@ -28,6 +31,7 @@ class Buss{
 		
 		//Coneccion a la base de datos
 		$this->user = new operationDB();
+		
 	}
 		
 	//Valida al usuario
@@ -51,6 +55,11 @@ class Buss{
 	
 	public function BussSizeOrganitation(){
 		$arrTemp = $this->classDAOCE->organitationSize($this->user);
+		return $arrTemp;
+	}
+	
+	public function BussCarreras(){
+		$arrTemp = $this->classDAOCE->carreras($this->user);
 		return $arrTemp;
 	}
 	//---------------------------------------------------------------------------

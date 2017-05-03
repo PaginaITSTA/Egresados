@@ -94,6 +94,26 @@ public function puestoEmpresa($conection){
 		
 		return($sizeOrganitation);
 	}
+	
+	public function carreras($conection){
+		$user = $conection;
+
+		$query = "SELECT * FROM seguimientoegresados.carrera;";
+
+		$user->queryDB($query);
+
+		$PuestoEmpresa;
+		$int = 0;
+	
+		while ($fila = $user->getRowsDB()) {
+			$PuestoEmpresa[ $int ][0] = $fila['id_carrera'];
+			$PuestoEmpresa[ $int ][1] = $fila['nom_carrera'];
+			$int ++;
+		}
+		$user->closedb();
+	
+		return($PuestoEmpresa); 
+	}
 }
 
 ?>

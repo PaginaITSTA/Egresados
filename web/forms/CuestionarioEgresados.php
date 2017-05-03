@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
+<!-- <meta charset="utf-8"> -->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
 <title>Cuestionario para egresados.</title>
 
@@ -31,34 +32,42 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class=" validate" for="noControl">No. Control:</label>
-			<input id="control" name="cuestionarioEgresados[]" type="text" class="validate" required pattern="\d{3}[Z-A]{1}\d{4}">
+			<input id="control" size="8" name="cuestionarioEgresados[]" type="text" required>
 		</div>
 		
 		<div class="col m6 s12 input-field">
-			<label for="carrera">Carrera:</label>
-			<input id="carrera" name="cuestionarioEgresados[]" type="text">
+			<label class="active validate" for="carrera">Carrera:</label>
+			<select id="carrera" name="cuestionarioEgresados[]" required>
+				<?php
+				$arraySectorEmpresa = $claseControlador->carreras();
+				//crea los items
+				foreach ($arraySectorEmpresa as list($a, $b)) {
+					echo "<option value=\"$a\">$b</option>";
+				}
+				?>
+			</select>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="validate" for="nombre">Nombre:</label>
-			<input id="nombre" name="cuestionarioEgresados[]" type="text">
+			<input id="nombre" size="50" name="cuestionarioEgresados[]" required type="text">
 		</div>
 		<div class="col m6 s12 input-field">
 			<label class="validate" for="direccion">Dirección:</label>
-			<input id="direccion" name="cuestionarioEgresados[]" type="text">
+			<input id="direccion" name="cuestionarioEgresados[]" type="text" size="45" required>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="telefono">Teléfono:</label>
-			<input id="telefono" name="cuestionarioEgresados[]" type="text">
+			<input id="telefono" name="cuestionarioEgresados[]" type="tel" placeholder="xxx-xxx-xxxx" pattern="^\d{3}-\d{3}-\d{4}$" required>
 		</div>
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="celular">Teléfono Celular:</label>
-			<input id="celular" name="cuestionarioEgresados[]" type="text">
+			<input id="celular" name="cuestionarioEgresados[]" type="tel" placeholder="xxx-xxx-xxxx" pattern="^\d{3}-\d{3}-\d{4}$" required>
 		</div>
 	</div>
 	
