@@ -1,43 +1,46 @@
 <?php
-require('../Conect/conect.php');
-require('../Conect/operaciones.php');
-
-class Log
-{
-	private $true = 'true';
-	private $false = 'false';
+/*
+require('conect.php');
+require('operaciones.php');
+*/
+class DAOLogin{
 	
 	public function __construct(){
 		
 	}
 	
-	public function Login($variable){
-	
-		//return("llego a DAO");
+	function Login($claseLogin, $coneccion){
 		
-		$user = new operationDB();
+		
+		$tipoUser = $claseLogin->__getTipoUsuario();
+		$nomUser = $claseLogin->__getnomUsuario();
+		$passuser = $claseLogin->__getPass();
+		
+		//echo("Los valores que llegaron son: $tipoUser y tambien $nomUser y tambien $passuser");
+		
+		$user = $coneccion;
 
-		$query = "SELECT * FROM seguimientoegresados.loging;";
+		$query = "SELECT * FROM seguimientoegresados.login where nomUsuario = \"".$nomUser."\" and tipoUsuario = \"".$tipoUser."\" and passwordUsuario = \"".$passuser."\";";
 
 		$user->queryDB($query);
 
+		
 		while ($fila = $user->getRowsDB()) {
-			if($fila['nomUsuario'] == $variable){
-				
-				return ('this->true');
+			$int = strcmp($fila['nomUsuario'], $nomUser);
+			if($int === 0){
+				$user->closedb();
+				unset($user);
+				return (0);
 				break;
 			}
-	//echo $fila['nomUsuario']."\t";
-	//echo $fila['tipoUsuario']."<br>";
 		}
+		$user->closedb();
+		unset($user);
+		
+		return(1);
 		
 	}
+
 }
 
-
-//$clas = new Log();
-
-//echo $clas->Login("Aracely");
-
-//echo($resultado);
 ?> 

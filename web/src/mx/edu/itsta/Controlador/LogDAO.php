@@ -1,10 +1,16 @@
 <?php
+/*
 require('conect.php');
 require('operaciones.php');
-
+*/
 class DAOLogin{
 	
-	function Login($claseLogin){
+	public function __construct(){
+		
+	}
+	
+	function Login($claseLogin, $coneccion){
+		
 		
 		$tipoUser = $claseLogin->__getTipoUsuario();
 		$nomUser = $claseLogin->__getnomUsuario();
@@ -12,8 +18,7 @@ class DAOLogin{
 		
 		//echo("Los valores que llegaron son: $tipoUser y tambien $nomUser y tambien $passuser");
 		
-		
-		$user = new operationDB();
+		$user = $coneccion;
 
 		$query = "SELECT * FROM seguimientoegresados.login where nomUsuario = \"".$nomUser."\" and tipoUsuario = \"".$tipoUser."\" and passwordUsuario = \"".$passuser."\";";
 

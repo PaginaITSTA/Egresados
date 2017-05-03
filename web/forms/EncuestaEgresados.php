@@ -58,6 +58,12 @@
 	<!-- a couple of lines  -->
 	<br><br>
 	
+	<?php
+		//Objeto de clase controlador
+		include "../src/mx/edu/itsta/Controlador/Controlador.php";
+		$claseControlador = new Controlador();
+	?>
+	
 	
 	<!-- Tabla infraestructura y equipamiento -->
 	<div>
@@ -73,6 +79,19 @@
 			</tr>
 			</thead>
 			<tbody class="bordered">
+			
+			<?php
+				//Numero para la columna de "No."
+				$int = 1;
+				
+				foreach(){
+					echo "<tr>";
+						echo "<td>1</td>";
+						echo "<td><p>¿El equipamiento de los laboratorios y talleres te parecieron?</p></td>";
+						echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
+					echo "</tr>";
+				}
+			?>
 				
 				<tr>
 					<td>1</td>
