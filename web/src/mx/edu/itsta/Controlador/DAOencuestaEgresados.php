@@ -6,6 +6,10 @@ class DAOEncuestaEgresados{
 		//Declaraciones del constructor
 	}
 	
+	public  function guardarValores($connection){
+		
+	}
+	
 	public function tabla($conection){
 		//coneccion
 		$user = $conection;

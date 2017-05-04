@@ -50,6 +50,7 @@
               			<label class="active" for="login[]">Tipo de usuario:</label>
               			<select required name="login[]">
               				<option value="Alumno" selected>Alumno</option>
+              				<option value="Egresado">Egresado</option>
               				<option value="Encargado">Encargado</option>
               				<option value="Administrador">Administrador</option>
               			</select>

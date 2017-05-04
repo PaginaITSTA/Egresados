@@ -23,10 +23,12 @@ $ClaseBuss = new Buss();
 
 if(($ClaseBuss->validUser($claseLogin)) === 0){
 	unset($claseControlador);
+	//Aquí debe de ir la memoria de sesion
 	header('location: ../dashboard.php');
 	die();
 }else{
 	unset($claseControlador);
+	//Aqui para performance
 	header('location: ../login.php');
 	die();
 }

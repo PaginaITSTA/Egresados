@@ -1,4 +1,4 @@
-<?php
+ <?php
 $arrayCuestionario = $_POST['cuestionarioEgresados'];
 
 require "../../src/mx/edu/itsta/DTO/cuestionarioEgresadosDTO.php";
@@ -36,7 +36,7 @@ if($arrayCuestionario[14] === "Otro"){
 }
 
 
-$ClaseCuestionario->__setSE_tamanoEmpresa($arrayCuestionario[15]);
+$ClaseCuestionario->__setSE_tamanoEmpresa($arrayCuestionario[16]);
 
 //Requerimos un nuevo archivo para hacer el enlace
 require "../../src/mx/edu/itsta/Controlador/Controlador.php";
@@ -44,6 +44,7 @@ require "../../src/mx/edu/itsta/Controlador/Controlador.php";
 $claseControlador = new Controlador();
 
 $claseControlador->cuestionarioEgresados($ClaseCuestionario);
+header('location: ../dashboard.php');
 
 //Pruebas de obtención de información a partir de la clase.
 //echo "Hemos ingresado el valor: ".$arrayCuestionario[0]." en la clase";

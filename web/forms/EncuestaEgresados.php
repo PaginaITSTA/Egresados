@@ -30,27 +30,32 @@
     		<tr>
       			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="nombre">Nombre:</label>
-      				<input id="nombre" name="nombre" type="text">
+      				<input id="nombre" name="arrayCuestionario[]" type="text">
       			</div></div></td>
       			
-      			<td colspan="1"><div class="input-field row"><div class="col m12 s12">
-      				<label class="active" for="carrera">Carrera:</label>
-      				<input id="carrera" name="carrera" type="text">
-      			</div></div></td>
+      			<td colspan="1">
+      				<div class="input-field row">
+      					<div class="col m12 s12">
+      						<label class="active" for="carrera">Carrera:</label>
+      						<input id="carrera" name="arrayCuestionario[]" type="text">
+      					</div>
+      				</div>
+      			</td>
+      			
       			<td><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="generacion">Generación:</label>
-      				<input id="generacion" name="generacion" type="text">
+      				<input id="generacion" name="arrayCuestionario[]" type="text">
       			</div></div></td>
     		</tr>
     		<tr>
       			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="empAct">Empleo actual:</label>
-      				<input id="empAct" name="empAct" type="text">
+      				<input id="empAct" name="arrayCuestionario[]" type="text">
       			</div></div></td>
       			
       			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
       				<label class="active" for="giroEmp">Giro de la empresa:</label>
-      				<input id="giroEmp" name="giroEmp" type="text">
+      				<input id="giroEmp" name="arrayCuestionario[]" type="text">
       			</div></div></td>
     		</tr>
   			</tbody>

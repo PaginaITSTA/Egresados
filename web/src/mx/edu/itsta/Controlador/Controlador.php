@@ -60,7 +60,7 @@ class Controlador{
 	public function cuestionarioEgresados($claseCE){
 		$temp = $claseCE;
 		$classBuss = new Buss();
-		
+		$classBuss->BussGuardaCuestionario($temp);
 	}
 	//---------------------------------------------------------------------------
 }

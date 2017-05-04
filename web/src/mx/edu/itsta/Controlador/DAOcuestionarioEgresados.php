@@ -1,17 +1,11 @@
 <?php
-/*
-require('conect.php');
-require('operaciones.php');
-*/
 class DAOCuestionario{
 	
-	
 	function __contruct(){
-		
+		//Inicializacion del constructor
 	}
 
-	function guardarCuestionario($claseCuestionarioEgresados, $conection){
-	
+	function guardaCuestionario($claseCuestionarioEgresados, $conection){
 		$SE_noControl = $claseCuestionarioEgresados->__getSE_noControl();
 		$SE_carrera = $claseCuestionarioEgresados->__getSE_carrera();
 		$SE_nombre = $claseCuestionarioEgresados->__getSE_nombre();
@@ -34,55 +28,72 @@ class DAOCuestionario{
 
 		//Start transaction
 		$user->queryDB("START TRANSACTION");
-		$a = $user->query("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '2147483647', '2147483647', 'ceidy@gmail.com', 'Contador público', '2004-2008', 'no', 'Banorte', 'si', '2', '1', '3');");
+		/*
+		$query = "INSERT INTO `seguimientoegresados`.`datosalumnos` (`
+		SE_noControl` = $SE_noControl, `SE_carrera`, = $SE_carrera 
+		`SE_nombre` = $SE_nombre, `SE_direccion` = $SE_direccion, 
+		`SE_telefono` = $SE_telefono, `SE_telMovil` = $SE_telMovil, 
+		`SE_email` = $SE_email, `SE_pEgreso` = $SE_pEgreso, 
+		`SE_generacion` = $SE_generacion, `SE_estudia` = $SE_estudia, 
+		`SE_estudioActual` = $SE_estudioActual, `SE_empresaTrabajo` = $SE_empresaTrabajo, 
+		`SE_trabajoEspecialidad` $SE_trabajoEspecialidad, `SE_sectorTrabajo` = $SE_sectorTrabajo, 
+		`SE_puestoTrabajo` = $SE_puestoTrabajo, `SE_tamanoEmpresa` = $SE_tamanoEmpresa)";
+		*/
+		
+		$user->queryDB("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_estudioActual`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES  ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '$SE_telefono', '$SE_telMovil', '$SE_email', '$SE_pEgreso', '$SE_generacion', '$SE_estudia','$SE_estudioActual' , '$SE_empresaTrabajo', '$SE_trabajoEspecialidad', '$SE_sectorTrabajo', '$SE_puestoTrabajo', '$SE_tamanoEmpresa');");
+		
+		//return($query);
+		
+		
+		if($a){
+			$user->queryDB("COMMIT;");
+		}else{
+			$user->queryDB("ROLLBACK;");
+		}
 		
 		$user->closedb();
 	
+	}
+
+	public function sectorEmpresa($conection){
+		$user = $conection;
+
+		$query = "SELECT * FROM seguimientoegresados.sectorempresa;";
+
+		$user->queryDB($query);
+
+		$SectorEmpresa;
+		$cont = 0;
+	
+		while ($fila = $user->getRowsDB()) {
+			$SectorEmpresa[ $cont ][0] = $fila['id_sector'];
+			$SectorEmpresa[ $cont ][1] = $fila['nom_sector'];
+			$cont ++;
+		}
+		
+		$user->closedb();
+	
+		return($SectorEmpresa);	
+	}
+
+	public function puestoEmpresa($conection){
+		$user = $conection;
+
+		$query = "SELECT * FROM seguimientoegresados.puestoempresa;";
+
+		$user->queryDB($query);
+
+		$PuestoEmpresa;
+		$int = 0;
+	
+		while ($fila = $user->getRowsDB()) {
+			$PuestoEmpresa[ $int ][0] = $fila['id_puesto'];
+			$PuestoEmpresa[ $int ][1] = $fila['nom_puesto'];
+			$int ++;
+		}
+		$user->closedb();
 		return($PuestoEmpresa);
-	
-}
-
-public function sectorEmpresa($conection){
-	$user = $conection;
-
-	$query = "SELECT * FROM seguimientoegresados.sectorempresa;";
-
-	$user->queryDB($query);
-
-	$SectorEmpresa;
-	$cont = 0;
-	
-	while ($fila = $user->getRowsDB()) {
-		$SectorEmpresa[ $cont ][0] = $fila['id_sector'];
-		$SectorEmpresa[ $cont ][1] = $fila['nom_sector'];
-		$cont ++;
 	}
-	$user->closedb();
-	
-	return($SectorEmpresa);	
-}
-
-
-public function puestoEmpresa($conection){
-	$user = $conection;
-
-	$query = "SELECT * FROM seguimientoegresados.puestoempresa;";
-
-	$user->queryDB($query);
-
-	$PuestoEmpresa;
-	$int = 0;
-	
-	while ($fila = $user->getRowsDB()) {
-		$PuestoEmpresa[ $int ][0] = $fila['id_puesto'];
-		$PuestoEmpresa[ $int ][1] = $fila['nom_puesto'];
-		$int ++;
-	}
-	$user->closedb();
-	
-	return($PuestoEmpresa);
-	
-}
 	
 	public function organitationSize($conection){
 		$user = $conection;
