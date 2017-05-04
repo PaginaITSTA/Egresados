@@ -81,38 +81,29 @@
 			<tbody class="bordered">
 			
 			<?php
-				//Numero para la columna de "No."
+				//Contador
 				$int = 1;
 				
-				foreach(){
+				$arrayTablas = $claseControlador->getTabla1();
+				
+				foreach($arrayTablas as list($a, $b)){
+					
 					echo "<tr>";
-						echo "<td>1</td>";
-						echo "<td><p>¿El equipamiento de los laboratorios y talleres te parecieron?</p></td>";
+						echo "<td>$a</td>";
+						echo "<td><p>$b</p></td>";
 						echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
 					echo "</tr>";
+					
+					if($int === 4){
+						$int++;
+						break;
+					}
+					
+					$int++;
 				}
+				unset($int);
 			?>
 				
-				<tr>
-					<td>1</td>
-					<td><p>¿El equipamiento de los laboratorios y talleres te parecieron?</p></td>
-					<td><textarea class="materialize-textarea"></textarea></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><p>¿Los servicios prestados (servicio médico, curso de inducción)?</p></td>
-					<td><textarea class="materialize-textarea"></textarea></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td><p>¿Sabes que en el ITSTA tenemos un proyecto de bolsa de trabajo y cuál es la opinion acerca del servicio que ofrece?</p></td>
-					<td><textarea class="materialize-textarea"></textarea></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td><p>En base a esto: ¿Como calificas los servicios básicos que el ITSTA ofrece?</p></td>
-					<td><textarea class="materialize-textarea"></textarea></td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -134,31 +125,27 @@
 			</tr>
 		</thead>
 			<tbody>
-				<tr>
-				<td>5</td>
-				<td><p>¿Cómo consideras que es el nivel de conocimientos y dominio de los temas mostrados por sus profesores al momento de impartirles la cátedrá así como el dominio en el dominio en el manejo de los equipos que se encuentran en los laboratorios y talleres al momento de realizar las prácticas que su carrera requiere?</p></td>
-				<td><input id="" name="" type="text"></td>
-			</tr>
-			<tr>
-				<td>6</td>
-				<td><p>¿Cómo consideras la experiencia práctica adquirida por parte suya, derivado de las visítas y prácticas en las empresas?</p></td>
-				<td><input id="" name="" type="text"></td>
-			</tr>
-			<tr>
-				<td>7</td>
-				<td><p>¿Consideras que el nivel de conocimientos que tiene son suficientes para el desempeño de su trabajo?</p></td>
-				<td><input id="" name="" type="text"></td>
-			</tr>
-			<tr>
-				<td>8</td>
-				<td><p>¿Consideras que con los conocimientos adquiridos en el ITSTA, te han permitido competir con otros egresados a nivel Licenciatura?</p></td>
-				<td><input id="" name="" type="text"></td>
-			</tr>
-			<tr>
-				<td>9</td>
-				<td><p>En base a lo anterior, ¿Cómo calificas la aplicación de los conocimientos que adquiriste en el ITSTA, en relación con tus actividades laborales?</p></td>
-				<td><input id="" name="" type="text"></td>
-			</tr>
+			
+			<?php
+				$int = 1;
+				foreach($arrayTablas as list($a, $b)){
+					
+					if($int > 4){
+						echo "<tr>";
+							echo "<td>$a</td>";
+							echo "<td><p>$b</p></td>";
+							echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
+						echo "</tr>";
+					}
+					
+					if($int === 9){
+						$int++;
+						break;
+					}
+					
+					$int++;
+				}
+			?>
 			</tbody>
 		</table>
 	</div>
@@ -179,35 +166,22 @@
 			</tr>
 		</thead>
 			<tbody>
-				<tr>
-					<td><p>10</p></td>
-					<td class="col m6 s6"><p>¿Qué es lo que no viste en tu carrera y que consideras que le hizo falta o te hace ahora que estás trabajando?</p></td>
-					<td class="col m4 s12"><input id="" name="" type="text"></td>
-				</tr>
-				
-				<tr>
-					<td><p>11</p></td>
-					<td><p>¿Qué es lo que si viste en tu carrera y que no te sirve ahora que estas trabajando?</p></td>
-					<td><input id="" name="" type="text"></td>
-				</tr>
-				
-				<tr>
-					<td><p>12</p></td>
-					<td><p>Consideras que la enseñanza adicional que el ITSTA ofrece (talleres, congresos, diplomados, certificaciones, entre otros), ¿es fundamental en el desempeño de sus actividades ahora que trabajas?</p></td>
-					<td><input id="" name="" type="text"></td>
-				</tr>
-				
-				<tr>
-					<td><p>13</p></td>
-					<td><p>¿Como calificas el servicio y atención que resiviste el personal del ITSTA durante tu formación?</p></td>
-					<td><input id="" name="" type="text"></td>
-				</tr>
-				
-				<tr>
-					<td><p>14</p></td>
-					<td><p>En base a lo anterior, ¿Cuál sería tu propuesta para mejorar en este sentido?</p></td>
-					<td><input id="" name="" type="text"></td>
-				</tr>
+			
+			<?php
+				$int = 1;
+				foreach($arrayTablas as list($a, $b)){
+					
+					if($int > 9){
+						echo "<tr>";
+							echo "<td>$a</td>";
+							echo "<td><p>$b</p></td>";
+							echo "<td><textarea class=\"materialize-textarea\"></textarea></td>";
+						echo "</tr>";
+					}
+					$int++;
+				}
+			?>
+			
 			</tbody>
 		</table>
 	</div>

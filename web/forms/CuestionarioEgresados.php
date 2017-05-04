@@ -22,6 +22,12 @@
 	<h1>Datos personales.</h1>
 	
 	<form name="form1" method="post" action="../control/controlador/controlCuestionarioEgresados.php">
+	
+	<?php
+		include "../src/mx/edu/itsta/Controlador/Controlador.php";
+		$claseControlador = new Controlador();
+	?>
+	
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class=" validate" for="noControl">No. Control:</label>
@@ -104,10 +110,7 @@
 			</select>
 		</div>
 		
-		<?php
-		include "../src/mx/edu/itsta/Controlador/Controlador.php";
-		$claseControlador = new Controlador();
-		?>
+		
 		
 		<div class="col m6 s12 input-field">
 			<label class="active" for="sector">¿Sector?</label>

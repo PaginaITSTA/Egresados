@@ -59,20 +59,9 @@ class Buss{
 	//---------------------------------------------------------------------------
 	//Metodos de la clase Encuesta egresados
 	public function BussGetTabla1(){
-		$arrTemp = $this->classDAOEE->sectorEmpresa($this->user);
+		$arrTemp = $this->classDAOEE->tabla($this->user);
 		return $arrTemp;
 	}
-	
-	public function BussGetTabla2(){
-		$arrTemp = $this->classDAOEE->sectorEmpresa($this->user);
-		return $arrTemp;
-	}
-	
-	public function BussGetTabla3(){
-		$arrTemp = $this->classDAOEE->sectorEmpresa($this->user);
-		return $arrTemp;
-	}
-	
 	//---------------------------------------------------------------------------
 }
 ?>

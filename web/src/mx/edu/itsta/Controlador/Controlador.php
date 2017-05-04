@@ -42,6 +42,7 @@ class Controlador{
 		return $classBuss->BussGetTabla1();
 	}
 	//Tabla uno de la clase Encuesta egresados
+	/*
 	public function getTabla2(){
 		$classBuss = new Buss();
 		return $classBuss->BussGetTabla2();
@@ -51,5 +52,6 @@ class Controlador{
 		$classBuss = new Buss();
 		return $classBuss->BussGetTabla3();
 	}
+	*/
 }
 ?>
