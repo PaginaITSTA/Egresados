@@ -76,6 +76,10 @@ class Buss{
 		$arrTemp = $this->classDAOEE->tabla($this->user);
 		return $arrTemp;
 	}
+	
+	public function BussGuardaEncuestaEgresados(){
+		
+	}
 	//---------------------------------------------------------------------------
 }
 ?>

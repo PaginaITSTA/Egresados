@@ -9,7 +9,8 @@ class Controlador{
 	}
 
 	//---------------------------------------------------------------------------
-	//Validación del usuario de la clase Login
+	//Validación del usuario de la clase Login//---------------------------------
+	//---------------------------------------------------------------------------
 	public function validaUsuario($claseLogin){
 		$temp = $claseLogin;
 		$classBuss = new Buss();
@@ -21,7 +22,8 @@ class Controlador{
 	
 	
 	//---------------------------------------------------------------------------
-	//Select de la clase Cuestionario egresados
+	//Select de la clase Cuestionario egresados//--------------------------------
+	//---------------------------------------------------------------------------
 	public function sectorEmpresa(){
 		$classBuss = new Buss();
 		return $classBuss->BussSectorEmpresa();
@@ -46,8 +48,14 @@ class Controlador{
 	
 	
 	//---------------------------------------------------------------------------
-	//Tabla uno de la clase Encuesta egresados
+	//Tabla uno de la clase Encuesta egresados//---------------------------------
+	//---------------------------------------------------------------------------
 	public function getTabla1(){
+		$classBuss = new Buss();
+		return $classBuss->BussGetTabla1();
+	}
+	//Guarda encuesta Egresados
+	public function guardaEncuestaE(){
 		$classBuss = new Buss();
 		return $classBuss->BussGetTabla1();
 	}
@@ -55,8 +63,11 @@ class Controlador{
 	
 	
 	
+	
 	//---------------------------------------------------------------------------
-	//
+	//Tabla uno de la clase Encuesta egresados//---------------------------------
+	//---------------------------------------------------------------------------
+	//Guarda cuestionario egresados
 	public function cuestionarioEgresados($claseCE){
 		$temp = $claseCE;
 		$classBuss = new Buss();

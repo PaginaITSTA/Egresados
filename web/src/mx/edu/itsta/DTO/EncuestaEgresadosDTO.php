@@ -1,5 +1,5 @@
 <?php
-class EcuestaEgresados{
+class EncuestaEgresados{
 	//Encabezado de la pagina
 	private $SE_nombre = "";
 	private $SE_carrera = "";
@@ -25,12 +25,14 @@ class EcuestaEgresados{
 	
 
 	//Constructor de la clase
-	function __contruct(){
+	function __construct(){
+		
 	}
 
 	
 	//----------------------------------------------------------------------------------------
-	//Encabezado de la página
+	//Encabezado de la página//---------------------------------------------------------------
+	//----------------------------------------------------------------------------------------
 	public function __setSE_nombre($SE_nombre){
 		$this->SE_nombre = $SE_nombre;
 	}
@@ -113,8 +115,11 @@ class EcuestaEgresados{
 		$this->pregunta14 = $pregunta;
 	}
 	
+	
+	
 	//----------------------------------------------------------------------------------------
-	//Encabezado de la página
+	//Encabezado de la página//---------------------------------------------------------------
+	//----------------------------------------------------------------------------------------
 	public function __getSE_nombre(){
 		return "{$this->SE_nombre}";
 	}
@@ -137,59 +142,64 @@ class EcuestaEgresados{
 	//----------------------------------------------------------------------------------------
 	
 	
-	public function __getpregunta(){
+	
+	
+	//----------------------------------------------------------------------------------------
+	//Getters de las preguntas//--------------------------------------------------------------
+	//----------------------------------------------------------------------------------------
+	public function __getpregunta1(){
+		return "{$this->pregunta1}";
+	}
+	
+	public function __getpregunta2(){
+		return "{$this->pregunta2}";
+	}
+	
+	public function __getpregunta3(){
+		return "{$this->pregunta3}";
+	}
+	
+	public function __getpregunta4(){
+		return "{$this->pregunta4}";
+	}
+	
+	public function __getpregunta5(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta6(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta7(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta8(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta9(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta10(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta11(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta12(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
+	public function __getpregunta13(){
 		return "{$this->pregunta}";
 	}
 	
-	public function __getpregunta(){
-		return "{$this->pregunta}";
-	}
-	
-	public function __getpregunta(){
-		return "{$this->pregunta}";
-	}
-	
-	public function __getpregunta(){
-		return "{$this->pregunta}";
-	}
-	
-	public function __getpregunta(){
-		return "{$this->pregunta}";
-	}
-	
-	public function __getpregunta(){
+	public function __getpregunta14(){
 		return "{$this->pregunta}";
 	}
 
