@@ -113,7 +113,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="active" for="queTrabaja">¿Trabaja dentro de su especialidad?</label>
-			<select id="queTrabaja" name="cuestionarioEgresados[]">
+			<select id="queTrabaja" name="cuestionarioEgresados[]" required>
 				<option value="Si">Si.</option>
 				<option value="No">No.</option>
 			</select>

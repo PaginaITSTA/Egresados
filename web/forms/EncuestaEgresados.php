@@ -13,7 +13,7 @@
 
 <body>
 	<?php
-		include('../plantillas/navbar.php');
+		require('../plantillas/navbar.php');
 	?>
   	
 <div class="container">
@@ -22,40 +22,45 @@
 	</div>
 	
 	
-	<form>
+	<form action="../control/controlador/controlEncuestaEgresados.php" method="post">
 	<!-- Tabla inicial o cabecera -->
-	<div>
+	<?php
+	echo "<div>
 		<table>
   			<tbody>
     		<tr>
-      			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
-      				<label class="active" for="nombre">Nombre:</label>
-      				<input id="nombre" name="arrayEncuesta[]" type="text">
-      			</div></div></td>
+      			<td colspan=\"2\">
+				<div class=\"input-field row\">
+				<div class=\"col m12 s12\">
+      				<label class=\"active\" for=\"nombre\">Nombre:</label>
+      				<input id=\"nombre\" name=\"arrayEncuesta[]\" type=\"text\">
+      			</div>
+				</div>
+				</td>
       			
-      			<td colspan="1">
-      				<div class="input-field row">
-      					<div class="col m12 s12">
-      						<label class="active" for="carrera">Carrera:</label>
-      						<input id="carrera" name="arrayEncuesta[]" type="text">
+      			<td colspan=\"1\">
+      				<div class=\"input-field row\">
+      					<div class=\"col m12 s12\">
+      						<label class=\"active\" for=\"carrera\">Carrera:</label>
+      						<input id=\"carrera\" name=\"arrayEncuesta[]\" type=\"text\">
       					</div>
       				</div>
       			</td>
       			
-      			<td><div class="input-field row"><div class="col m12 s12">
-      				<label class="active" for="generacion">Generación:</label>
-      				<input id="generacion" name="arrayEncuesta[]" type="text">
+      			<td><div class=\"input-field row\"><div class=\"col m12 s12\">
+      				<label class=\"active\" for=\"generacion\">Generación:</label>
+      				<input id=\"generacion\" name=\"arrayEncuesta[]\" type=\"text\">
       			</div></div></td>
     		</tr>
     		<tr>
-      			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
-      				<label class="active" for="empAct">Empleo actual:</label>
-      				<input id="empAct" name="arrayEncuesta[]" type="text">
+      			<td colspan=\"2\"><div class=\"input-field row\"><div class=\"col m12 s12\">
+      				<label class=\"active\" for=\"empAct\">Empleo actual:</label>
+      				<input id=\"empAct\" name=\"arrayEncuesta[]\" type=\"text\">
       			</div></div></td>
       			
-      			<td colspan="2"><div class="input-field row"><div class="col m12 s12">
-      				<label class="active" for="giroEmp">Giro de la empresa:</label>
-      				<input id="giroEmp" name="arrayEncuesta[]" type="text">
+      			<td colspan=\"2\"><div class=\"input-field row\"><div class=\"col m12 s12\">
+      				<label class=\"active\" for=\"giroEmp\">Giro de la empresa:</label>
+      				<input id=\"giroEmp\" name=\"arrayEncuesta[]\" type=\"text\">
       			</div></div></td>
     		</tr>
   			</tbody>
@@ -63,9 +68,9 @@
 	</div>
 	
 	<!-- a couple of lines  -->
-	<br><br>
+	<br><br>";
 	
-	<?php
+	
 		//Objeto de clase controlador
 		include "../src/mx/edu/itsta/Controlador/Controlador.php";
 		$claseControlador = new Controlador();
@@ -81,7 +86,7 @@
 			<thead>
 			<tr>
 				<th>No.</th>
-				<th width="400">Pregunta</th>
+				<th>Pregunta</th>
 				<th>Respuesta.</th>
 			</tr>
 			</thead>
@@ -95,11 +100,20 @@
 				
 				foreach($arrayTablas as list($a, $b)){
 					
-					echo "<tr>";
-						echo "<td>$a</td>";
-						echo "<td><p>$b</p></td>";
-						echo "<td><textarea name=\"arrayEncuesta[]\" class=\"materialize-textarea\"></textarea></td>";
-					echo "</tr>";
+					echo "<tr>
+						<td>$a</td>
+						<td><p align=\"justify\">$b</p></td>
+						<td>
+							<label class=\"active\" for=\"tabla1\" >Elije una respuesta</label>
+							<select id=\"tabla1\" name=\"arrayEncuesta[]\" required>
+								<option selected value=\"1\">Muy bien</option>
+								<option value=\"2\">Bien</option>
+								<option value=\"3\">Regular</option>
+								<option value=\"4\">Mal</option>
+								<option value=\"5\">Pésimo</option>
+							</select>
+						</td>
+					</tr>";
 					
 					if($int === 4){
 						$int++;
@@ -127,7 +141,7 @@
 		<thead>
 			<tr>
 				<td>No.</td>
-				<td width="400">Pregunta.</td>
+				<td>Pregunta.</td>
 				<td>Respuesta.</td>
 			</tr>
 		</thead>
@@ -140,8 +154,17 @@
 					if($int > 4){
 						echo "<tr>";
 							echo "<td>$a</td>";
-							echo "<td><p>$b</p></td>";
-							echo "<td><textarea name=\"arrayEncuesta[]\" class=\"materialize-textarea\"></textarea></td>";
+							echo "<td><p>$b</p></td>
+							<td>
+							<label class=\"active\" for=\"organizacion\" >Elije una respuesta</label>
+							<select id=\"organizacion\" name=\"arrayEncuesta[]\" required>
+								<option selected value=\"1\">Muy bien</option>
+								<option value=\"2\">Bien</option>
+								<option value=\"3\">Regular</option>
+								<option value=\"4\">Mal</option>
+								<option value=\"5\">Pésimo</option>
+							</select>
+							</td>";
 						echo "</tr>";
 					}
 					
@@ -168,7 +191,7 @@
 		<thead>
 			<tr>
 				<td>No.</td>
-				<td width="400">Pregunta</td>
+				<td>Pregunta</td>
 				<td >Respuesta</td>
 			</tr>
 		</thead>
@@ -180,10 +203,19 @@
 					
 					if($int > 9){
 						echo "<tr>";
-							echo "<td>$a</td>";
-							echo "<td><p>$b</p></td>";
-							echo "<td><textarea name=\"arrayEncuesta[]\" class=\"materialize-textarea\"></textarea></td>";
-						echo "</tr>";
+							echo "<td>$a</td>
+							<td><p>$b</p></td>
+							<td>
+							<label class=\"active\" for=\"tabla3\" >Elije una respuesta</label>
+							<select id=\"tabla3\" name=\"arrayEncuesta[]\" required>
+								<option selected value=\"1\">Muy bien</option>
+								<option value=\"2\">Bien</option>
+								<option value=\"3\">Regular</option>
+								<option value=\"4\">Mal</option>
+								<option value=\"5\">Pésimo</option>
+							</select>
+							</td>
+						</tr>";
 					}
 					$int++;
 				}
@@ -213,6 +245,7 @@
 <script>
 	$(document).ready(function(){
 		$('.button-collapse').sideNav();
+		$('select').material_select();
 	});
 </script>
 </body>

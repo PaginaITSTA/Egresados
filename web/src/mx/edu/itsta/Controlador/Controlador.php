@@ -55,9 +55,10 @@ class Controlador{
 		return $classBuss->BussGetTabla1();
 	}
 	//Guarda encuesta Egresados
-	public function guardaEncuestaE(){
+	public function guardaEncuestaE($claseEnEg){
+		$temp = $claseEnEg;
 		$classBuss = new Buss();
-		return $classBuss->BussGetTabla1();
+		$classBuss->BussGuardaEncuestaEgresados($temp);
 	}
 	//---------------------------------------------------------------------------
 	
@@ -65,7 +66,7 @@ class Controlador{
 	
 	
 	//---------------------------------------------------------------------------
-	//Tabla uno de la clase Encuesta egresados//---------------------------------
+	//Tabla uno de la clase Cuestionario egresados//---------------------------------
 	//---------------------------------------------------------------------------
 	//Guarda cuestionario egresados
 	public function cuestionarioEgresados($claseCE){

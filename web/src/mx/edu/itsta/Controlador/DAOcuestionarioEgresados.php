@@ -27,20 +27,10 @@ class DAOCuestionario{
 		$user = $conection;
 
 		//Start transaction
-		$user->queryDB("START TRANSACTION");
-		/*
-		$query = "INSERT INTO `seguimientoegresados`.`datosalumnos` (`
-		SE_noControl` = $SE_noControl, `SE_carrera`, = $SE_carrera 
-		`SE_nombre` = $SE_nombre, `SE_direccion` = $SE_direccion, 
-		`SE_telefono` = $SE_telefono, `SE_telMovil` = $SE_telMovil, 
-		`SE_email` = $SE_email, `SE_pEgreso` = $SE_pEgreso, 
-		`SE_generacion` = $SE_generacion, `SE_estudia` = $SE_estudia, 
-		`SE_estudioActual` = $SE_estudioActual, `SE_empresaTrabajo` = $SE_empresaTrabajo, 
-		`SE_trabajoEspecialidad` $SE_trabajoEspecialidad, `SE_sectorTrabajo` = $SE_sectorTrabajo, 
-		`SE_puestoTrabajo` = $SE_puestoTrabajo, `SE_tamanoEmpresa` = $SE_tamanoEmpresa)";
-		*/
+		//$user->queryDB("START TRANSACTION");
 		
-		$user->queryDB("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_estudioActual`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES  ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '$SE_telefono', '$SE_telMovil', '$SE_email', '$SE_pEgreso', '$SE_generacion', '$SE_estudia','$SE_estudioActual' , '$SE_empresaTrabajo', '$SE_trabajoEspecialidad', '$SE_sectorTrabajo', '$SE_puestoTrabajo', '$SE_tamanoEmpresa');");
+		
+		$a = mysql_query("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_estudioActual`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES  ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '$SE_telefono', '$SE_telMovil', '$SE_email', '$SE_pEgreso', '$SE_generacion', '$SE_estudia','$SE_estudioActual' , '$SE_empresaTrabajo', '$SE_trabajoEspecialidad', '$SE_sectorTrabajo', '$SE_puestoTrabajo', '$SE_tamanoEmpresa');");
 		
 		//return($query);
 		

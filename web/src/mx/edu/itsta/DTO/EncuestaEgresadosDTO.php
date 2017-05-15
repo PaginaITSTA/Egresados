@@ -128,7 +128,7 @@ class EncuestaEgresados{
 		return "{$this->SE_carrera}";
 	}
 	
-	public function _getSE_generacion(){
+	public function __getSE_generacion(){
 		return "{$this->SE_generacion}";
 	}
 	
@@ -164,43 +164,43 @@ class EncuestaEgresados{
 	}
 	
 	public function __getpregunta5(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta5}";
 	}
 	
 	public function __getpregunta6(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta6}";
 	}
 	
 	public function __getpregunta7(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta7}";
 	}
 	
 	public function __getpregunta8(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta8}";
 	}
 	
 	public function __getpregunta9(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta9}";
 	}
 	
 	public function __getpregunta10(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta10}";
 	}
 	
 	public function __getpregunta11(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta11}";
 	}
 	
 	public function __getpregunta12(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta12}";
 	}
 	
 	public function __getpregunta13(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta13}";
 	}
 	
 	public function __getpregunta14(){
-		return "{$this->pregunta}";
+		return "{$this->pregunta14}";
 	}
 
 }
