@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `datosalumnos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `datosalumnos` (
-  `iddatosAlumnos` int(11) NOT NULL,
+  `iddatosAlumnos` int(11) NOT NULL AUTO_INCREMENT,
   `SE_noControl` varchar(8) DEFAULT NULL,
   `SE_carrera` int(2) DEFAULT NULL,
   `SE_nombre` varchar(50) DEFAULT NULL,
@@ -64,19 +64,16 @@ CREATE TABLE `datosalumnos` (
   `SE_sectorTrabajo` int(1) DEFAULT NULL,
   `SE_puestoTrabajo` varchar(30) DEFAULT NULL,
   `SE_tamanoEmpresa` int(1) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`iddatosAlumnos`),
   KEY `SE_carrera_idx` (`SE_carrera`),
   KEY `SE_sectorTrabajo_idx` (`SE_sectorTrabajo`),
   KEY `SE_puestoTrabajo_idx` (`SE_puestoTrabajo`),
   KEY `SE_tamanoEmpresa_idx` (`SE_tamanoEmpresa`),
-  KEY `1d_usuario_idx` (`id_usuario`),
-  CONSTRAINT `1d_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `SE_carrera` FOREIGN KEY (`SE_carrera`) REFERENCES `carrera` (`id_carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `SE_puestoTrabajo` FOREIGN KEY (`SE_puestoTrabajo`) REFERENCES `puestoempresa` (`nom_puesto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `SE_sectorTrabajo` FOREIGN KEY (`SE_sectorTrabajo`) REFERENCES `sectorempresa` (`id_sector`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `SE_tamanoEmpresa` FOREIGN KEY (`SE_tamanoEmpresa`) REFERENCES `sizeorganitation` (`id_tamano`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +82,7 @@ CREATE TABLE `datosalumnos` (
 
 LOCK TABLES `datosalumnos` WRITE;
 /*!40000 ALTER TABLE `datosalumnos` DISABLE KEYS */;
-INSERT INTO `datosalumnos` VALUES (1,'133S0123',4,'Abraham García Santiago','call. independencia S/N colonia Ruiz cortinez','7891205678','2147483647','abraham@gmail.com','ingeniero en sistemas computacinales','2013-2018','no',NULL,'Appmed Servicios de Consultoría','si',2,'Operativo',2,1),(2,'124E0456',5,'Erasto Arteaga del Ángel','calle Bahía Blanca Monterrey Nuevo leon','7439856437','8975497845','erasto@gmail.com','Ingeniero electronico','2010-2014','no',NULL,'Samsung Electronics','si',1,'Supervisor',3,2);
+INSERT INTO `datosalumnos` VALUES (1,'133S0123',4,'Abraham García Santiago','call. independencia S/N colonia Ruiz cortinez','7891205678','2147483647','abraham@gmail.com','ingeniero en sistemas computacinales','2013-2018','no',NULL,'Appmed Servicios de Consultoría','si',2,'Operativo',2),(2,'124E0456',2,'Erasto Arteaga del Ángel','calle Bahía Blanca Monterrey Nuevo leon','7891205678','2147483647','erasto@gmail.com','Ingeniero electronico','2010-2014','no',NULL,'Samsung Electronics','si',1,'Operativo',2),(3,'133P0234',7,'Horacio Cruz feliciano','Cerro Azul','9394572538','2846473634','horacio@gmail.com','Ingeniero petrolero','2011-2015','no',NULL,'Pemex','si',2,'Directivo',3);
 /*!40000 ALTER TABLE `datosalumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,59 +151,43 @@ INSERT INTO `puestoempresa` VALUES (5,'Directivo'),(1,'Operativo'),(7,'Otro'),(6
 UNLOCK TABLES;
 
 --
--- Table structure for table `respuestasencuesta`
+-- Table structure for table `respuestasencuestas`
 --
 
-DROP TABLE IF EXISTS `respuestasencuesta`;
+DROP TABLE IF EXISTS `respuestasencuestas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `respuestasencuesta` (
-  `idRespuesta` int(2) NOT NULL,
-  `desc_res` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`idRespuesta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `respuestasencuesta`
---
-
-LOCK TABLES `respuestasencuesta` WRITE;
-/*!40000 ALTER TABLE `respuestasencuesta` DISABLE KEYS */;
-INSERT INTO `respuestasencuesta` VALUES (1,'Pésimo'),(2,'Mal'),(3,'Regular'),(4,'Bien'),(5,'Muy bien');
-/*!40000 ALTER TABLE `respuestasencuesta` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `resultadosencuesta`
---
-
-DROP TABLE IF EXISTS `resultadosencuesta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `resultadosencuesta` (
-  `idResEncuesta` int(11) NOT NULL,
-  `idpreguntasEncuesta` int(3) DEFAULT NULL,
-  `idRespuesta` int(2) DEFAULT NULL,
+CREATE TABLE `respuestasencuestas` (
+  `idRespuesta` int(11) NOT NULL AUTO_INCREMENT,
   `iddatosAlumnos` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idResEncuesta`),
-  KEY `idpreguntasEncuesta_idx` (`idpreguntasEncuesta`),
-  KEY `idRespuesta_idx` (`idRespuesta`),
+  `resUno` int(1) DEFAULT NULL,
+  `resDos` int(1) DEFAULT NULL,
+  `resTres` int(1) DEFAULT NULL,
+  `resCuatro` int(1) DEFAULT NULL,
+  `resCinco` int(1) DEFAULT NULL,
+  `resSeis` int(1) DEFAULT NULL,
+  `resSiete` int(1) DEFAULT NULL,
+  `resOcho` int(1) DEFAULT NULL,
+  `resNueve` int(1) DEFAULT NULL,
+  `resDiez` int(1) DEFAULT NULL,
+  `resOnce` int(1) DEFAULT NULL,
+  `resDoce` int(1) DEFAULT NULL,
+  `resTrece` int(1) DEFAULT NULL,
+  `resCatorce` int(1) DEFAULT NULL,
+  PRIMARY KEY (`idRespuesta`),
   KEY `iddatosAlumnos_idx` (`iddatosAlumnos`),
-  CONSTRAINT `idRespuesta` FOREIGN KEY (`idRespuesta`) REFERENCES `respuestasencuesta` (`idRespuesta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `iddatosAlumnos` FOREIGN KEY (`iddatosAlumnos`) REFERENCES `datosalumnos` (`iddatosAlumnos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idpreguntasEncuesta` FOREIGN KEY (`idpreguntasEncuesta`) REFERENCES `preguntasencuesta` (`idpreguntasEncuesta`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `iddatosAlumnos` FOREIGN KEY (`iddatosAlumnos`) REFERENCES `datosalumnos` (`iddatosAlumnos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `resultadosencuesta`
+-- Dumping data for table `respuestasencuestas`
 --
 
-LOCK TABLES `resultadosencuesta` WRITE;
-/*!40000 ALTER TABLE `resultadosencuesta` DISABLE KEYS */;
-INSERT INTO `resultadosencuesta` VALUES (1,1,2,1),(2,2,3,1);
-/*!40000 ALTER TABLE `resultadosencuesta` ENABLE KEYS */;
+LOCK TABLES `respuestasencuestas` WRITE;
+/*!40000 ALTER TABLE `respuestasencuestas` DISABLE KEYS */;
+INSERT INTO `respuestasencuestas` VALUES (1,1,2,3,4,5,2,5,3,2,3,4,5,2,1,3),(2,2,1,1,2,2,3,4,5,2,3,4,1,5,3,4);
+/*!40000 ALTER TABLE `respuestasencuestas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -289,11 +270,11 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,7 +283,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'abraham01','01'),(2,'horacio02','02');
+INSERT INTO `user` VALUES (1,'abraham@gmail.com','01'),(2,'horacio@gmail.com','02'),(3,'erasto@gmail.com','03'),(4,'jesusOrtiz@gmail.com','04');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,15 +295,15 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
   `id_tipoUser` int(1) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
-  KEY `id_user_idx` (`id_user`),
   KEY `id_tipoUser_idx` (`id_tipoUser`),
+  KEY `id_user_idx` (`id_user`),
   CONSTRAINT `id_tipoUser` FOREIGN KEY (`id_tipoUser`) REFERENCES `tipousuario` (`id_tipoUser`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +312,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,1,1),(2,2,1);
+INSERT INTO `usuarios` VALUES (1,1,1),(2,2,1),(3,3,1),(4,4,2);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,4 +343,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-14 22:31:24
+-- Dump completed on 2017-05-18 19:05:49
