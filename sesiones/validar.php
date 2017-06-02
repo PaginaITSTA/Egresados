@@ -15,10 +15,11 @@ session_start()
 if(isset($_POST['btn_iniciar'])){
 	$usuario = $_POST['user'];
 	$pass = $_POST['password'];
-	$conn = mysql_query("SELECT * FROM login WHERE user='$usuario' AND password='$pass'") or die(mysql_error());
+	$conn = mysql_query("SELECT * FROM seguimientoegresados.user WHERE user='$usuario' AND password='$pass'") or die(mysql_error());
 	if(mysql_num_rows($conn)>0){
 		$row = mysql_fetch_array($conn);
 		$_SESSION["user"] = $row['user'];
+		$_SESSION["tipoUser"]='usuario1';
 		echo'iniciando sesion para '.$_SESSION['user'].'<p>';
 		echo'<script> window.location="panel.php"; </script>';
 	}else{

@@ -78,7 +78,7 @@
 		</div>
 		
 		<div class="col m6 s12 input-field">
-			<label class="active" for="pEgreso">P-Egreso:</label>
+			<label class="active" for="pEgreso">Perfil de egreso:</label>
 			<input id="pEgreso" name="cuestionarioEgresados[]" type="text" size="30">
 		</div>
 	</div>

@@ -106,11 +106,11 @@
 						<td>
 							<label class=\"active\" for=\"tabla1\" >Elije una respuesta</label>
 							<select id=\"tabla1\" name=\"arrayEncuesta[]\" required>
-								<option selected value=\"1\">Muy bien</option>
-								<option value=\"2\">Bien</option>
+								<option selected value=\"5\">Muy bien</option>
+								<option value=\"4\">Bien</option>
 								<option value=\"3\">Regular</option>
-								<option value=\"4\">Mal</option>
-								<option value=\"5\">Pésimo</option>
+								<option value=\"2\">Mal</option>
+								<option value=\"1\">Pésimo</option>
 							</select>
 						</td>
 					</tr>";
@@ -158,11 +158,11 @@
 							<td>
 							<label class=\"active\" for=\"organizacion\" >Elije una respuesta</label>
 							<select id=\"organizacion\" name=\"arrayEncuesta[]\" required>
-								<option selected value=\"1\">Muy bien</option>
-								<option value=\"2\">Bien</option>
+								<option selected value=\"5\">Muy bien</option>
+								<option value=\"4\">Bien</option>
 								<option value=\"3\">Regular</option>
-								<option value=\"4\">Mal</option>
-								<option value=\"5\">Pésimo</option>
+								<option value=\"2\">Mal</option>
+								<option value=\"1\">Pésimo</option>
 							</select>
 							</td>";
 						echo "</tr>";
@@ -208,11 +208,11 @@
 							<td>
 							<label class=\"active\" for=\"tabla3\" >Elije una respuesta</label>
 							<select id=\"tabla3\" name=\"arrayEncuesta[]\" required>
-								<option selected value=\"1\">Muy bien</option>
-								<option value=\"2\">Bien</option>
+								<option selected value=\"5\">Muy bien</option>
+								<option value=\"4\">Bien</option>
 								<option value=\"3\">Regular</option>
-								<option value=\"4\">Mal</option>
-								<option value=\"5\">Pésimo</option>
+								<option value=\"2\">Mal</option>
+								<option value=\"1\">Pésimo</option>
 							</select>
 							</td>
 						</tr>";

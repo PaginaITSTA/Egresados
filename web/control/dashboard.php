@@ -31,7 +31,57 @@
 		
 	</div>
 </nav>
+<div class="container">
 
+
+<table class="highlight responsive-table">
+	<thead>
+		<tr>
+			<th>Carrera</th>
+			<th>Egresados</th>
+			<th>Trabajan</th>
+			<th>Hombres</th>
+			<th>Mujeres</th>
+			<th>Nivel</th>
+			
+			<th>Educativo</th>
+			<th>Primario</th>
+			<th>Secundario</th>
+			<th>Terciario</th>
+			
+			
+			<th>Públic</th>
+			<th>Privada</th>
+			
+			<th>Si</th>
+			<th>No</th>
+			<th>Parcial</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+
+</div>
 
 <?php
 	include('../plantillas/footer.php');

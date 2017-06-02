@@ -11,7 +11,8 @@ if(isset($_SESSION['user'])){?>
 <body>
 <?php
 echo'---Se ha iniciando sesión para: '.$_SESSION['user'].'---'.'<p>';
-	?>
+echo'<p>--Este es el otro attributo obtenido --> '.$_SESSION['tipoUser'].'</p>';
+?>
 Ejemplo de memoria de sesion<p>
 	<a href="salir.php"><button> Cerrar sesión </button></a>
 </body>
