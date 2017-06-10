@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $arrLogin = $_POST['login'];
 
 //Requiere una clase para volverla objeto
@@ -10,24 +12,24 @@ $claseLogin = new Login();
 
 //envía valores a la clase predefinida
 $claseLogin->__setTipoUsuario($arrLogin[0]);
-$claseLogin->__setnomUsuario($arrLogin[1]);
-$claseLogin->__setPass($arrLogin[2]);
-
-/*
-require("../../src/mx/edu/itsta/Controlador/Controlador.php");
-$claseControlador = new Controlador();
-*/
+$claseLogin->__setCorreo($arrLogin[1]);
+$claseLogin->__setNumeroControl($arrLogin[2]);
+$claseLogin->__setPass($arrLogin[3]);
 
 require("../../src/mx/edu/itsta/Controlador/Buss.php");
 $ClaseBuss = new Buss();
 
-if(($ClaseBuss->validUser($claseLogin)) === 0){
-	unset($claseControlador);
-	//Aquí debe de ir la memoria de sesion
+if(($ClaseBuss->validUser($claseLogin)) == 0){
+	//---------------------------------------------------
+	$_SESSION["tipoUser"] = $arrLogin[0];
+	$_SESSION["user"] = $arrLogin[1];
+	$_SESSION['noControl'] = $arrLogin[2];
+	//---------------------------------------------------
+	unset($ClaseBuss);
 	header('location: ../dashboard.php');
 	die();
 }else{
-	unset($claseControlador);
+	unset($ClaseBuss);
 	//Aqui para performance
 	header('location: ../login.php');
 	die();

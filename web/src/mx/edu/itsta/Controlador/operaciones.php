@@ -1,4 +1,4 @@
-<?php
+ <?php
 class operationDB extends connectionDB{
 	private $result;
 
@@ -10,7 +10,7 @@ class operationDB extends connectionDB{
  		$this->result = mysql_query($sql,$this->getConnection()) ;
 	}
 
-	private function getResult(){
+	public function getResult(){
 		return $this->result;
 	}
 

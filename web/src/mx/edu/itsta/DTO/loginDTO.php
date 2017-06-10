@@ -1,8 +1,9 @@
 <?php
 class Login{
-	private $nomUsuario = "nombreDefault";
+	private $correo = "nombreDefault";
 	private $tipoUsuario = "tipoDefault";
 	private $pass = "passDefault";
+	private $numeroControl = 'numeroDefault';
 	
 	function __contruct(){
 		
@@ -12,7 +13,7 @@ class Login{
 		return "{$this->pass}";
 	}
 	
-	public function __getnomUsuario(){
+	public function __getCorreo(){
 		return $this->nomUsuario;
 	}
 	
@@ -20,16 +21,24 @@ class Login{
 		return "{$this->tipoUsuario}";
 	}
 	
+	public function __getNumeroCotrol(){
+		return "{$this->numeroControl}";
+	}
+	
 	public function __setPass($pass){
 		$this->pass = $pass;
 	}
 	
-	public function __setnomUsuario($nomUsuario){
+	public function __setCorreo($nomUsuario){
 		$this->nomUsuario = $nomUsuario;
 	}
 	
 	public function __setTipoUsuario($tipoUsuario){
 		$this->tipoUsuario = $tipoUsuario;
+	}
+	
+	public function __setNumeroControl($numeroControl){
+		$this->numeroControl = $numeroControl;
 	}
 }
 ?>

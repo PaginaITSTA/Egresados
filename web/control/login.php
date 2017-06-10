@@ -58,7 +58,14 @@
               		
               		<div class="input-field">
               			<div class="row">
-              				<label class="active" for="login[]">Nombre:</label>
+              				<label class="active" for="login[]">Correo:</label>
+              				<input type="email" class="center-align" name="login[]" required>
+              			</div>
+              		</div>
+              		
+              		<div class="input-field">
+              			<div class="row">
+              				<label class="active" for="login[]">Número de control:</label>
               				<input type="text" class="center-align" name="login[]" required>
               			</div>
               		</div>
@@ -71,9 +78,15 @@
               		</div>
             	</div>
             	
-            	<div class="card-action right-align">
-              		<input class="waves-effect waves-light btn" type="submit" value="Ingresar">
-            	</div>
+            	<div class="row">
+            		<div class="col m6 s12 card-action left-align">
+            			<a class="waves-effect btn" href="../forms/registro.php">¡Registrate!</a>
+            		</div>
+            		
+            		<div class="col m6 s12 card-action right-align">
+              			<input class="waves-effect waves-light btn" type="submit" value="Ingresar">
+            		</div>
+				</div>
             </form>
 			</div>
 		</div>

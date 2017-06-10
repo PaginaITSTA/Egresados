@@ -7,6 +7,7 @@ require('operaciones.php');
 require("DAOcuestionarioEgresados.php");
 require("LogDAO.php");
 require("DAOencuestaEgresados.php");
+require("DAORegistro.php");
 
 
 header("Content-Type: text/html;charset=utf-8");
@@ -18,6 +19,7 @@ class Buss{
 	private static $classDAOCE;
 	private static $classLogin;
 	private static $classDAOEE;
+	private static $classRegistro;
 	
 	//Objeto que hace una única conección a la base de datos.
 	private static $user;
@@ -28,6 +30,7 @@ class Buss{
 		$this->classDAOCE = new DAOCuestionario();
 		$this->classLogin = new DAOLogin();
 		$this->classDAOEE = new DAOEncuestaEgresados();
+		$this->classRegistro = new RegistroDAO();
 		
 		//Coneccion a la base de datos
 		$this->user = new operationDB();
@@ -80,6 +83,15 @@ class Buss{
 	public function BussGuardaEncuestaEgresados($claseEnEgre){
 		$temp = $claseEnEgre;
 		$this->classDAOEE->guardarValores($temp);
+	}
+	//---------------------------------------------------------------------------
+	
+	
+	//---------------------------------------------------------------------------
+	//Metodos de la clase Registro previo
+	public function BussGuardaTemporal($claseRegistroPrevio){
+		$temp = $claseRegistroPrevio;
+		return $this->classRegistro->guardaRegistro($temp, $this->user);
 	}
 	//---------------------------------------------------------------------------
 }

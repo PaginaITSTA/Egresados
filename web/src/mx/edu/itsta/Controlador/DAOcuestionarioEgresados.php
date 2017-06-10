@@ -1,7 +1,7 @@
 <?php
 class DAOCuestionario{
 	
-	function __contruct(){
+	function __construct(){
 		//Inicializacion del constructor
 	}
 
@@ -27,7 +27,7 @@ class DAOCuestionario{
 		$user = $conection;
 
 		//Start transaction
-		//$user->queryDB("START TRANSACTION");
+		$user->queryDB("START TRANSACTION");
 		
 		
 		$a = mysql_query("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_estudioActual`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES  ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '$SE_telefono', '$SE_telMovil', '$SE_email', '$SE_pEgreso', '$SE_generacion', '$SE_estudia','$SE_estudioActual' , '$SE_empresaTrabajo', '$SE_trabajoEspecialidad', '$SE_sectorTrabajo', '$SE_puestoTrabajo', '$SE_tamanoEmpresa');");
