@@ -35,5 +35,32 @@ class RegistroDAO{
 		
 		
 	}
+	
+	public function verTablaTemporal($connection){
+		$user = $connection;
+		
+		$query = "select * from seguimientoegresados.temporal;";
+		
+		$user->queryDB($query);
+		
+		$tablaTemporal;
+		$contador = 0;
+		
+		while($fila = $user->getRowsDB()){
+			$tablaTemporal[ $contador ][0] = $fila['T_noControl'];
+			$tablaTemporal[ $contador ][1] = $fila['T_Nombre'];
+			$tablaTemporal[ $contador ][2] = $fila['T_telefono'];
+			$tablaTemporal[ $contador ][3] = $fila['T_celular'];
+			$tablaTemporal[ $contador ][4] = $fila['T_correo'];
+			$tablaTemporal[ $contador ][5] = $fila['T_sexo'];
+			$tablaTemporal[ $contador ][6] = $fila['T_tipoAlumno'];
+			
+			$contador ++;
+		}
+		
+		$user->closedb();
+	
+		return($tablaTemporal);	
+	}
 }
 ?>

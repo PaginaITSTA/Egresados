@@ -63,90 +63,93 @@ if(isset($_SESSION['tipoUser'])){
 
 <?php
 	}else if($_SESSION['tipoUser'] == "Encargado"){
+		//echo "<script> alert(\"Bienvenido encargado: \"".$_SESSION['user'].");</script>)";
 ?>
 	<body>
 
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+<ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
 <nav>
 	<div class="nav-wrapper #37474f blue-grey darken-3">
-	
 		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">Logo</a>
-		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		
 		<ul class="right hide-on-med-and-down">
-			<li>
-			<?php
-		//Iniciar la secion anterior
- 		session_start();
- 		//Borrar todas las variables
- 		session_unset();
- 		//Destruir la sesion.
- 		session_destroy();
-			?>
-			<a href="../index.php">Salir</a></li>
+			<li><a href="../index.php">Salir</a></li>
+			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
 		</ul>
 		
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="side-nav" id="mobile-demo">
-			<li>
-			<?php
-		//Iniciar la secion anterior
- 		session_start();
- 		//Borrar todas las variables
- 		session_unset();
- 		//Destruir la sesion.
- 		session_destroy();
-			?>
-			<a href="../index.php">Salir</a></li>
+			<li><a href="../index.php">Salir</a></li>
+			<li><a class="dropdown-button" data-activates="dropdown2">Más Acciones<i class="material-icons right">arrow_drop_down</i></a></li>
 		</ul>
-		
 	</div>
 </nav>
 
+
 <div class="container">
 
+<?php
+		include "../src/mx/edu/itsta/Controlador/Buss.php";
+		$claseBuss = new Buss();
+?>
 
 <table class="highlight responsive-table">
+<h3>Tabla de peticiones para ingreso al sistema.</h3>
 	<thead>
 		<tr>
-			<th>Carrera</th>
-			<th>Egresados</th>
-			<th>Trabajan</th>
-			<th>Hombres</th>
-			<th>Mujeres</th>
-			<th>Nivel</th>
-			
-			<th>Educativo</th>
-			<th>Primario</th>
-			<th>Secundario</th>
-			<th>Terciario</th>
-			
-			
-			<th>Públic</th>
-			<th>Privada</th>
-			
-			<th>Si</th>
-			<th>No</th>
-			<th>Parcial</th>
+			<th>Numero de control</th>
+			<th>Nombre</th>
+			<th>Teléfono</th>
+			<th>Celular</th>
+			<th>Correo</th>
+			<th>Sexo</th>
+			<th>Tipo de usuario</th>
+			<th>Aporbar ingreso</th>
+			<th>No aprobar ingreso</th>
 		</tr>
 	</thead>
 	
 	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+	<?php
+		$tablaTemporal = $claseBuss->BussVerTablaTemporal();
+		
+		foreach($tablaTemporal as list($a, $b, $c, $d, $e, $f, $g)){
+			echo "<tr>
+				<td>$a</td>
+				<td>$b</td>
+				<td>$c</td>
+				<td>$d</td>
+				<td>$e</td>
+				<td>$f</td>
+				<td>$g</td>
+				<td>
+					<p>
+      					<input type=\"checkbox\" id=\"".$a."aprobado\" />
+      					<label for=\"".$a."aprobado\">Aprobar</label>
+    				</p>
+				</td>
+				<td>
+					<p>
+      					<input type=\"checkbox\" id=\"".$a."desAprobado\" />
+      					<label for=\"".$a."desAprobado\">Desaprobar</label>
+    				</p>
+				</td>
+			  </tr>";
+		}
+	?>
+		
 	</tbody>
 </table>
 
@@ -161,8 +164,12 @@ if(isset($_SESSION['tipoUser'])){
 <script type="text/javascript" src="../js/materialize.min.js"></script>
 
 <script>
+	Materialize.toast('Bienvenido!', 4000)
+	
 	$(document).ready(function(){
 		$(".button-collapse").sideNav();
+		$(".select").material_select();
+		$(".dropdown-button").dropdown();
 	});
 </script>
 <?php		

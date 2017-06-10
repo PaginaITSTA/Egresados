@@ -36,11 +36,11 @@
 	</div>
 	
 	<div class="row">
-		<div class="col m6 s12 input-field" onKeyUp="guarda">
+		<div class="col m6 s12 input-field">
 			<label class="validate" for="pass">Contraseña:</label>
 			<input id="pass" size="10" name="otro" required type="password">
 		</div>
-		<div class="col m6 s12 input-field" onKeyUp="guarda">
+		<div class="col m6 s12 input-field" onKeyPress="guarda">
 			<label class="validate" for="rePass">Repite la contraseña:</label>
 			<input id="rePass" name="cuestionarioEgresados[]" type="password" size="10" required>
 		</div>
@@ -84,7 +84,7 @@
 	<br><br>
 	
 	<div align="right">
-		<button id="btnGuarda" type="submit" class="waves-effect waves-light btn">Completa tu registro<i class="material-icons right">send</i></button>
+		<button id="btnGuarda" type="submit" class="waves-effect waves-light btn" disabled>Completa tu registro<i class="material-icons right">send</i></button>
 	</div>
 	</form>
 </div>
@@ -103,20 +103,21 @@
 		//$("#organizacion").getPropertyValue()
 	});
 	
-	
 	function guarda(){
 		var Pass = document.getElementById("pass").value;
 		var Repass = document.getElementById("rePass").value;
-		//var btnGuarda = document.getElementById("btnGuarda"):
-			
-		if(Pass == Repass){
-			document.getElementById("btnGuarda").style.visibility.enable = true; 
+		var btnGuarda = document.getElementById("btnGuarda"):
+		var n = Pass.localeCompare(Repass);
+		
+		if(n == 0){
+			btnGuarda.disabled = false;
+			//document.getElementById("btnGuarda").disabled = false; 
 		}else{
-			document.getElementById("btnGuarda").style.visibility.disable = true; 
+			btnGuarda.disabled = true;
+			//document.getElementById("btnGuarda").disabled = true; 
 		}
 		
 	}
-	
 </script>
 
 </body>

@@ -88,10 +88,14 @@ class Buss{
 	
 	
 	//---------------------------------------------------------------------------
-	//Metodos de la clase Registro previo
+	//Metodos de la clase Registro previo (Temporal)
 	public function BussGuardaTemporal($claseRegistroPrevio){
 		$temp = $claseRegistroPrevio;
 		return $this->classRegistro->guardaRegistro($temp, $this->user);
+	}
+	
+	public function BussVerTablaTemporal(){
+		return $this->classRegistro->verTablaTemporal($this->user);
 	}
 	//---------------------------------------------------------------------------
 }
