@@ -8,6 +8,6 @@
 
  echo "Se ha cerrado la secion correctamente.";
 
-header('location: ./login.php');
+header('location: ../home.php');
 die();
 ?>

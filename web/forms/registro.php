@@ -40,9 +40,9 @@
 			<label class="validate" for="pass">Contraseña:</label>
 			<input id="pass" size="10" name="otro" required type="password">
 		</div>
-		<div class="col m6 s12 input-field" onKeyPress="guarda">
+		<div class="col m6 s12 input-field">
 			<label class="validate" for="rePass">Repite la contraseña:</label>
-			<input id="rePass" name="cuestionarioEgresados[]" type="password" size="10" required>
+			<input id="rePass" onKeyUp="compruebaPassword()" name="cuestionarioEgresados[]" type="password" size="10" required>
 		</div>
 	</div>
 	
@@ -92,7 +92,8 @@
 <?php
 	include('../plantillas/footer.php');
 ?>
-    
+   
+<script src="../plantillas/Encargado/tablaTemporal.js"></script>
 <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.min.js"></script>
 
@@ -102,22 +103,6 @@
 		$("select").material_select();
 		//$("#organizacion").getPropertyValue()
 	});
-	
-	function guarda(){
-		var Pass = document.getElementById("pass").value;
-		var Repass = document.getElementById("rePass").value;
-		var btnGuarda = document.getElementById("btnGuarda"):
-		var n = Pass.localeCompare(Repass);
-		
-		if(n == 0){
-			btnGuarda.disabled = false;
-			//document.getElementById("btnGuarda").disabled = false; 
-		}else{
-			btnGuarda.disabled = true;
-			//document.getElementById("btnGuarda").disabled = true; 
-		}
-		
-	}
 </script>
 
 </body>

@@ -31,6 +31,7 @@ if(($ClaseBuss->validUser($claseLogin)) == 0){
 }else{
 	unset($ClaseBuss);
 	//Aqui para performance
+	$_SESSION['error'] = "Error al tratar de ingresar, revisa los datos ingresados.";
 	header('location: ../login.php');
 	die();
 }

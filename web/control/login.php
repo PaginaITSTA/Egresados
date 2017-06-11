@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['tipoUser'])){
+	header('location: ./dashboard.php');
+	die();
+}else{
+?>
 <!doctype html>
 <html>
 <head>
@@ -19,19 +26,25 @@
 		
 		<ul class="right hide-on-med-and-down">
 			<li><a href="#">Información</a></li>
-			<li><a href="../index.php">Salir</a></li>
+			<li><a href="../control/controlador/CerrarSesion.php">Salir</a></li>
 		</ul>
 		
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="#">Información</a></li>
-			<li><a href="../index.php">Salir</a></li>
+			<li><a href="../control/controlador/CerrarSesion.php">Salir</a></li>
 		</ul>
 		
 		
 		
 	</div>
 </nav>
-	
+	<?php
+	if(isset($_SESSION['error'])){
+		//$error = $_SESSION['error'];
+		echo "<div class=\"container center-align\">".$_SESSION['error']."</div>";
+	}
+		
+	?>
 	<div class="container">
 	
 	<br><br>
@@ -110,3 +123,6 @@
 	</script>
 </body>
 </html>
+<?php
+}
+?>

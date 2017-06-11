@@ -16,6 +16,7 @@ if(isset($_SESSION['tipoUser'])){
 </head>
 <?php
 	if($_SESSION['tipoUser'] == "Alumno"){
+		echo "<button id=\"valorOculto\" value=\"".$_SESSION['user']."\" hidden=\"\"></button>";
 ?>
 <body>
 
@@ -23,18 +24,20 @@ if(isset($_SESSION['tipoUser'])){
 	<div class="nav-wrapper #37474f blue-grey darken-3">
 	
 		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">Logo</a>
-		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		
 		<ul class="right hide-on-med-and-down">
 			<li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
 			<li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
-			<li><a href="../index.php">Salir</a></li>
+			<li><a href="../index.php">Inicio</a></li>
+			<li><a href="controlador/CerrarSesion.php">cerrar sesion</a></li>
 		</ul>
 		
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="../forms/EncuestaEgresados.php">Encuesta egresados</a></li>
 			<li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
-			<li><a href="../index.php">Salir</a></li>
+			<li><a href="../index.php">Inicio</a></li>
+			<li><a href="controlador/CerrarSesion.php">Cerrar sesion</a></li>
 		</ul>
 		
 	</div>
@@ -60,30 +63,30 @@ if(isset($_SESSION['tipoUser'])){
 <ul id="dropdown1" class="dropdown-content">
   <li><a onClick="verContenidoInicial(), ocultarTablaEncargado()">Ver página inicial</a></li>
   <li><a onClick="verTablaEncargado(), ocultarContenidoInicial()">Ver tabla de solicitudes</a></li>
-  <li><a href="#!">Cerrera sesion</a></li>
-  <li class="divider"></li>
   <li><a href="#!">three</a></li>
+  <li class="divider"></li>
+  <li><a href="controlador/CerrarSesion.php">Cerrera sesion</a></li>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
   <li><a onClick="verContenidoInicial() ocultarTablaEncargado()">Ver página inicial</a></li>
   <li><a onClick="verTablaEncargado() ocultarContenidoInicial()">Ver tabla de solicitudes</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
   <li><a href="#!">three</a></li>
+  <li class="divider"></li>
+  <li><a href="controlador/CerrarSesion.php">Cerrar sesion</a></li>
 </ul>
 <nav>
 	<div class="nav-wrapper #37474f blue-grey darken-3">
 		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">Logo</a>
 		
 		<ul class="right hide-on-med-and-down">
-			<li><a href="../index.php">Salir</a></li>
+			<li><a href="../index.php">Inicio</a></li>
 			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Más opciones<i class="material-icons right">arrow_drop_down</i></a></li>
 		</ul>
 		
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="../index.php">Salir</a></li>
+			<li><a href="../index.php">Inicio</a></li>
 			<li><a class="dropdown-button" data-activates="dropdown2">Más opciones<i class="material-icons right">arrow_drop_down</i></a></li>
 		</ul>
 	</div>
