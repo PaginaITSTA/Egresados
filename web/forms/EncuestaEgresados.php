@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if(isset($_SESSION['tipoUser'])){
+	if($_SESSION['tipoUser']  == "Alumno" ){
+?>
 <!doctype html>
 <html>
 <head>
@@ -250,3 +256,13 @@
 </script>
 </body>
 </html>
+<?php
+	}else{
+		header('location: ../control/login.php');
+		die();
+	}
+} else{
+	header('location: ../control/login.php');
+	die();
+}
+?>

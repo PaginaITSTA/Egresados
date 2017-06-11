@@ -32,7 +32,7 @@
 	
 	
 	
-	<div id="index-banner" class="parallax-container">
+  <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
@@ -44,10 +44,9 @@
           <a href="../control/login.php" id="login_button" class="btn-large waves-effect waves-light teal lighten-1">Ingresa</a>
         </div>
         <br><br>
-
       </div>
     </div>
-    <div class="parallax"><img src="../img/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="../img/background1.gif" alt="Unsplashed background img 1"></div>
   </div>
 	
 	

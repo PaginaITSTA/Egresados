@@ -49,33 +49,25 @@ if(isset($_SESSION['tipoUser'])){
 </div>
 
 <?php
-	include('../plantillas/footer.php');
-?>
-<!-- area  of scripts -->
-<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../js/materialize.min.js"></script>
-
-<script>
-	$(document).ready(function(){
-		$(".button-collapse").sideNav();
-	});
-</script>
-
-<?php
 	}else if($_SESSION['tipoUser'] == "Encargado"){
-		//echo "<script> alert(\"Bienvenido encargado: \"".$_SESSION['user'].");</script>)";
+		
+		//echo "<a id=\"valorOculto\" >".$_SESSION['user']."</a>";
+		echo "<button id=\"valorOculto\" value=\"".$_SESSION['user']."\" hidden=\"\"></button>";
+		
 ?>
 	<body>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
+  <li><a onClick="verContenidoInicial(), ocultarTablaEncargado()">Ver página inicial</a></li>
+  <li><a onClick="verTablaEncargado(), ocultarContenidoInicial()">Ver tabla de solicitudes</a></li>
+  <li><a href="#!">Cerrera sesion</a></li>
   <li class="divider"></li>
   <li><a href="#!">three</a></li>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">one</a></li>
+  <li><a onClick="verContenidoInicial() ocultarTablaEncargado()">Ver página inicial</a></li>
+  <li><a onClick="verTablaEncargado() ocultarContenidoInicial()">Ver tabla de solicitudes</a></li>
   <li><a href="#!">two</a></li>
   <li class="divider"></li>
   <li><a href="#!">three</a></li>
@@ -86,13 +78,13 @@ if(isset($_SESSION['tipoUser'])){
 		
 		<ul class="right hide-on-med-and-down">
 			<li><a href="../index.php">Salir</a></li>
-			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Más opciones<i class="material-icons right">arrow_drop_down</i></a></li>
 		</ul>
 		
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="../index.php">Salir</a></li>
-			<li><a class="dropdown-button" data-activates="dropdown2">Más Acciones<i class="material-icons right">arrow_drop_down</i></a></li>
+			<li><a class="dropdown-button" data-activates="dropdown2">Más opciones<i class="material-icons right">arrow_drop_down</i></a></li>
 		</ul>
 	</div>
 </nav>
@@ -104,9 +96,9 @@ if(isset($_SESSION['tipoUser'])){
 		include "../src/mx/edu/itsta/Controlador/Buss.php";
 		$claseBuss = new Buss();
 ?>
-
-<table class="highlight responsive-table">
-<h3>Tabla de peticiones para ingreso al sistema.</h3>
+<br><br>
+<table id="tablaEncargado" class="highlight responsive-table hide">
+<h3 id="tituloTablaEncargado" class="hide">Tabla de peticiones para ingreso al sistema.</h3>
 	<thead>
 		<tr>
 			<th>Numero de control</th>
@@ -153,28 +145,45 @@ if(isset($_SESSION['tipoUser'])){
 	</tbody>
 </table>
 
-
 </div>
 
+<div id="contenidoInicial">
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-4">¡Bienvenido al área de encargados!</h1>
+      </div>
+    </div>
+    <div class="parallax"><img src="../img/background2.gif" alt="Unsplashed background img 1"></div>
+  </div>
+</div>
+
+
+
+
+<?php		
+	}
+?>
 <?php
 	include('../plantillas/footer.php');
 ?>
 <!-- area  of scripts -->
+<script src="../plantillas/Encargado/verTablas.js"></script>
 <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.min.js"></script>
 
 <script>
-	Materialize.toast('Bienvenido!', 4000)
+	//var Usuario = document.getElementById("valorOculto").value;
+	Materialize.toast('Bienvenido ' + document.getElementById("valorOculto").value, 4000)
 	
 	$(document).ready(function(){
 		$(".button-collapse").sideNav();
 		$(".select").material_select();
 		$(".dropdown-button").dropdown();
+		$('.parallax').parallax();
 	});
 </script>
-<?php		
-	}
-?>
 </body>
 </html>
 <?php

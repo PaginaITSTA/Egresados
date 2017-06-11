@@ -66,14 +66,14 @@
               		<div class="input-field">
               			<div class="row">
               				<label class="active" for="login[]">Número de control:</label>
-              				<input type="text" class="center-align" name="login[]" required>
+              				<input type="text" class="center-align" name="login[]" size="8" required>
               			</div>
               		</div>
               		
               		<div class="input-field">
               			<div class="row">
               				<label for="login[]" class="active">Contraseña:</label>
-              				<input type="password" class="center-align" name="login[]" required>
+              				<input type="password" class="center-align" name="login[]" size="10" required>
               			</div>
               		</div>
             	</div>

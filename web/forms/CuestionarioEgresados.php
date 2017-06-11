@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if(isset($_SESSION['tipoUser'])){
+	if($_SESSION['tipoUser']  == "Alumno" ){
+?>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +17,6 @@
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
 <!--Let browser know website is optimized for mobile-->
 </head>
-
 <body>
 	
 	<!-- adherir navbar -->
@@ -227,3 +232,13 @@
 	</script>
 </body>
 </html>
+<?php
+	}else{
+		header('location: ../control/login.php');
+		die();
+	}
+} else{
+	header('location: ../control/login.php');
+	die();
+}
+?>
