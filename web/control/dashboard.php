@@ -20,23 +20,32 @@ if(isset($_SESSION['tipoUser'])){
 ?>
 <body>
 
+<ul id="encuesta1" class="dropdown-content">
+  <li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
+  <li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<ul id="encuesta2" class="dropdown-content">
+  <li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
+  <li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
 <nav>
 	<div class="nav-wrapper #37474f blue-grey darken-3">
 	
 		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">Logo</a>
 		
 		<ul class="right hide-on-med-and-down">
-			<li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
-			<li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
 			<li><a href="../index.php">Inicio</a></li>
+			<li><a class="dropdown-button" href="#!" data-activates="encuesta1">Encuestas a llenar<i class="material-icons right">arrow_drop_down</i></a></li>
 			<li><a href="controlador/CerrarSesion.php">cerrar sesion</a></li>
 		</ul>
 		
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="../forms/EncuestaEgresados.php">Encuesta egresados</a></li>
-			<li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
 			<li><a href="../index.php">Inicio</a></li>
+			<li><a class="dropdown-button" href="#!" data-activates="encuesta2">Encuestas a llenar<i class="material-icons right">arrow_drop_down</i></a></li>
 			<li><a href="controlador/CerrarSesion.php">Cerrar sesion</a></li>
 		</ul>
 		
@@ -61,17 +70,17 @@ if(isset($_SESSION['tipoUser'])){
 	<body>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><a onClick="verContenidoInicial(), ocultarTablaEncargado()">Ver página inicial</a></li>
-  <li><a onClick="verTablaEncargado(), ocultarContenidoInicial()">Ver tabla de solicitudes</a></li>
-  <li><a href="#!">three</a></li>
+  <li><a onClick="verContenidoInicial()">Ver página inicial</a></li>
+  <li><a onClick="verTablaEncargado()">Ver tabla de solicitudes</a></li>
+  <li><a onClick="muestraTablaAlumnos()">Ver tabla alumnos</a></li>
   <li class="divider"></li>
   <li><a href="controlador/CerrarSesion.php">Cerrera sesion</a></li>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
-  <li><a onClick="verContenidoInicial() ocultarTablaEncargado()">Ver página inicial</a></li>
-  <li><a onClick="verTablaEncargado() ocultarContenidoInicial()">Ver tabla de solicitudes</a></li>
-  <li><a href="#!">three</a></li>
+  <li><a onClick="verContenidoInicial()">Ver página inicial</a></li>
+  <li><a onClick="verTablaEncargado()">Ver tabla de solicitudes</a></li>
+  <li><a onClick="muestraTablaAlumnos()">Ver tabla alumnos</a></li>
   <li class="divider"></li>
   <li><a href="controlador/CerrarSesion.php">Cerrar sesion</a></li>
 </ul>
@@ -95,58 +104,9 @@ if(isset($_SESSION['tipoUser'])){
 
 <div class="container">
 
-<?php
-		include "../src/mx/edu/itsta/Controlador/Buss.php";
-		$claseBuss = new Buss();
-?>
-<br><br>
-<table id="tablaEncargado" class="highlight responsive-table hide">
-<h3 id="tituloTablaEncargado" class="hide">Tabla de peticiones para ingreso al sistema.</h3>
-	<thead>
-		<tr>
-			<th>Numero de control</th>
-			<th>Nombre</th>
-			<th>Teléfono</th>
-			<th>Celular</th>
-			<th>Correo</th>
-			<th>Sexo</th>
-			<th>Tipo de usuario</th>
-			<th>Aporbar ingreso</th>
-			<th>No aprobar ingreso</th>
-		</tr>
-	</thead>
-	
-	<tbody>
-	<?php
-		$tablaTemporal = $claseBuss->BussVerTablaTemporal();
-		
-		foreach($tablaTemporal as list($a, $b, $c, $d, $e, $f, $g)){
-			echo "<tr>
-				<td>$a</td>
-				<td>$b</td>
-				<td>$c</td>
-				<td>$d</td>
-				<td>$e</td>
-				<td>$f</td>
-				<td>$g</td>
-				<td>
-					<p>
-      					<input type=\"checkbox\" id=\"".$a."aprobado\" />
-      					<label for=\"".$a."aprobado\">Aprobar</label>
-    				</p>
-				</td>
-				<td>
-					<p>
-      					<input type=\"checkbox\" id=\"".$a."desAprobado\" />
-      					<label for=\"".$a."desAprobado\">Desaprobar</label>
-    				</p>
-				</td>
-			  </tr>";
-		}
-	?>
-		
-	</tbody>
-</table>
+<br>
+
+<div id="tablaTemporal" class="hide"></div>
 
 </div>
 
@@ -162,7 +122,7 @@ if(isset($_SESSION['tipoUser'])){
   </div>
 </div>
 
-
+<div class="container hide" id="tablaAlumnos"></div>
 
 
 <?php		

@@ -62,5 +62,34 @@ class RegistroDAO{
 	
 		return($tablaTemporal);	
 	}
+	
+	public function verAlumnos($connection){
+		$user = $connection;
+		
+		$query = "SELECT * FROM seguimientoegresados.ver_alumnos;";
+		
+		$user->queryDB($query);
+		
+		$tablaAlumnos;
+		$contador = 0;
+		
+		while($fila = $user->getRowsDB()){
+			$tablaAlumnos[ $contador ][0] = $fila['control'];
+			$tablaAlumnos[ $contador ][1] = $fila['nombre'];
+			$tablaAlumnos[ $contador ][2] = $fila['carrera'];
+			$tablaAlumnos[ $contador ][3] = $fila['mail'];
+			$tablaAlumnos[ $contador ][4] = $fila['telefono'];
+			$tablaAlumnos[ $contador ][5] = $fila['movil'];
+			$tablaAlumnos[ $contador ][6] = $fila['egreso'];
+			$tablaAlumnos[ $contador ][7] = $fila['sexo'];
+			$tablaAlumnos[ $contador ][8] = $fila['usuario'];
+			
+			$contador ++;
+		}
+		
+		$user->closedb();
+	
+		return($tablaAlumnos);
+	}
 }
 ?>

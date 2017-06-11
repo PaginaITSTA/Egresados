@@ -97,6 +97,10 @@ class Buss{
 	public function BussVerTablaTemporal(){
 		return $this->classRegistro->verTablaTemporal($this->user);
 	}
+	
+	public function BussVerTablaAlumnos(){
+		return $this->classRegistro->verAlumnos($this->user);
+	}
 	//---------------------------------------------------------------------------
 }
 ?>
