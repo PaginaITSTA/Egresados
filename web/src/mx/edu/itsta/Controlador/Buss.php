@@ -82,7 +82,7 @@ class Buss{
 	
 	public function BussGuardaEncuestaEgresados($claseEnEgre){
 		$temp = $claseEnEgre;
-		$this->classDAOEE->guardarValores($temp);
+		$this->classDAOEE->guardarValores($temp, $this->user);
 	}
 	//---------------------------------------------------------------------------
 	

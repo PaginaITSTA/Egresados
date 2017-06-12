@@ -25,20 +25,22 @@ class DAOCuestionario{
 	
 	 	//Connection
 		$user = $conection;
-
+		$DataBase = $user->getDB();
 		//Start transaction
 		$user->queryDB("START TRANSACTION");
 		
 		
-		$a = mysql_query("INSERT INTO `seguimientoegresados`.`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_estudioActual`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES  ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '$SE_telefono', '$SE_telMovil', '$SE_email', '$SE_pEgreso', '$SE_generacion', '$SE_estudia','$SE_estudioActual' , '$SE_empresaTrabajo', '$SE_trabajoEspecialidad', '$SE_sectorTrabajo', '$SE_puestoTrabajo', '$SE_tamanoEmpresa');");
+		$user->queryDB("INSERT INTO ".$DataBase.".`datosalumnos` (`SE_noControl`, `SE_carrera`, `SE_nombre`, `SE_direccion`, `SE_telefono`, `SE_telMovil`, `SE_email`, `SE_pEgreso`, `SE_generacion`, `SE_estudia`, `SE_estudioActual`, `SE_empresaTrabajo`, `SE_trabajoEspecialidad`, `SE_sectorTrabajo`, `SE_puestoTrabajo`, `SE_tamanoEmpresa`) VALUES  ('$SE_noControl', '$SE_carrera', '$SE_nombre', '$SE_direccion', '$SE_telefono', '$SE_telMovil', '$SE_email', '$SE_pEgreso', '$SE_generacion', '$SE_estudia','$SE_estudioActual' , '$SE_empresaTrabajo', '$SE_trabajoEspecialidad', '$SE_sectorTrabajo', '$SE_puestoTrabajo', '$SE_tamanoEmpresa');");
 		
-		//return($query);
+		$a = $user->getResult();
 		
 		
-		if($a){
+		if($a == 1){
 			$user->queryDB("COMMIT;");
+			return(1);
 		}else{
 			$user->queryDB("ROLLBACK;");
+			return(0);
 		}
 		
 		$user->closedb();
@@ -47,8 +49,8 @@ class DAOCuestionario{
 
 	public function sectorEmpresa($conection){
 		$user = $conection;
-
-		$query = "SELECT * FROM seguimientoegresados.sectorempresa;";
+		$DataBase = $user->getDB();
+		$query = "SELECT * FROM ".$DataBase.".sectorempresa;";
 
 		$user->queryDB($query);
 
@@ -68,8 +70,8 @@ class DAOCuestionario{
 
 	public function puestoEmpresa($conection){
 		$user = $conection;
-
-		$query = "SELECT * FROM seguimientoegresados.puestoempresa;";
+		$DataBase = $user->getDB();
+		$query = "SELECT * FROM ".$DataBase.".puestoempresa;";
 
 		$user->queryDB($query);
 
@@ -87,7 +89,8 @@ class DAOCuestionario{
 	
 	public function organitationSize($conection){
 		$user = $conection;
-		$query = "select * from seguimientoegresados.sizeorganitation;";
+		$DataBase = $user->getDB();
+		$query = "select * from $DataBase.sizeorganitation;";
 		$user->queryDB($query);
 		
 		$sizeOrganitation;
@@ -105,8 +108,8 @@ class DAOCuestionario{
 	
 	public function carreras($conection){
 		$user = $conection;
-
-		$query = "SELECT * FROM seguimientoegresados.carrera;";
+		$DataBase = $user->getDB();
+		$query = "SELECT * FROM $DataBase.carrera;";
 
 		$user->queryDB($query);
 

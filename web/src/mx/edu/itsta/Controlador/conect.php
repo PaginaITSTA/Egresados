@@ -4,7 +4,7 @@ class connectionDB{
 	private $host = "localhost";
 	private $user = "root";
 	private $password = "erick";
-	private $dataBase = "practicas";
+	private $dataBase = "seguimientoegresados";
 	private $connection;
 	
 	function connectionDB(){

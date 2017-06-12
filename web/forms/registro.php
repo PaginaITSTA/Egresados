@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -13,6 +16,11 @@
 <body>
 <?php
 	include('../plantillas/navbar.php');
+
+	if(isset($_SESSION['error'])){
+		//$error = $_SESSION['error'];
+		echo "<div class=\"container center-align #f44336 red\">".$_SESSION['error']."</div>";
+	}
 ?>
 
 <div class="container">
@@ -60,7 +68,7 @@
 	<div class="row">
 		<div class="col m6 s12 input-field">
 			<label class="validate" for="email">Correo electronico:</label>
-			<input id="email" size="45" name="cuestionarioEgresados[]" type="email" placeholder="alguien@ejemplo.com">
+			<input id="email" size="45" name="cuestionarioEgresados[]" type="email" placeholder="alguien@ejemplo.com" required>
 		</div>
 		<div class="col m6 s12 input-field">
 			<label class="validate active" for="sexo">Sexualidad:</label>

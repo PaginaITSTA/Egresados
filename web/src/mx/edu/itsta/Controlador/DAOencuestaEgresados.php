@@ -6,7 +6,7 @@ class DAOEncuestaEgresados{
 		//Declaraciones del constructor
 	}
 	
-	public function guardarValores($claseEnEgre){
+	public function guardarValores($claseEnEgre, $conection){
 		$nombre = $claseEnEgre->__getSE_nombre();
 		$carrera = $claseEnEgre->__getSE_carrera();
 		$generacion = $claseEnEgre->__getSE_generacion();
@@ -29,23 +29,29 @@ class DAOEncuestaEgresados{
 		$pregunta13 = $claseEnEgre->__getpregunta13();
 		$pregunta14 = $claseEnEgre->__getpregunta14();
 		
-
+		$user = $conection;
+		$DataBase = $user->getDB();
 		//Start transaction
-		mysql_query("START TRANSACTION");
+		$user->queryDB("START TRANSACTION");
 		
-		$result = mysql_query("SELECT MAX(idRespuestas) id FROM seguimientoegresados.respuestasencuesta;");
-		$id = mysql_result($result, 0, 'id');
-		$id = $id +1;
+		$user->queryDB("SELECT MAX(idRespuestas) id FROM $DataBase.respuestasencuesta;");
+		$fila = $user->getRowsDB();
+		$result = $fila['id'];
 		
-		$a = mysql_query("INSERT INTO `seguimientoegresados`.`respuestasencuesta` 
+		$id = $result +1;
+		
+		$user->queryDB("INSERT INTO `$DataBase`.`respuestasencuesta` 
 		(`idRespuestas`,`iddatosAlumnos`, `resUno`, `resDos`, `resTres`, `resCuatro`, `resCinco`, `resSeis`, `resSiete`, `resOcho`, `resNueve`, `resDiez`, `resOnce`, `resDoce`, `resTrece`, `resCatorce`) VALUES 
 		('$id','3', '$pregunta1', '$pregunta2', '$pregunta3', '$pregunta4', '$pregunta5', '$pregunta6', '$pregunta7', '$pregunta8', '$pregunta9', '$pregunta10', '$pregunta11', '$pregunta12', '$pregunta13', '$pregunta14');");
 		
+		$a = $user->getResult();
 		
-		if($a){
-			mysql_query("COMMIT;");
+		if($a == 1){
+			$user->queryDB("COMMIT;");
+			return(1);
 		}else{
-			mysql_query("ROLLBACK;");
+			$user->queryDB("ROLLBACK;");
+			return(0);
 		}
 		
 	}
@@ -53,8 +59,9 @@ class DAOEncuestaEgresados{
 	public function tabla($conection){
 		//coneccion
 		$user = $conection;
+		$DataBase = $user->getDB();
 		//Busqueda
-		$query = "SELECT * FROM seguimientoegresados.preguntasencuesta;";
+		$query = "SELECT * FROM $DataBase.preguntasencuesta;";
 		//proceso
 		$user->queryDB($query);
 		//variables

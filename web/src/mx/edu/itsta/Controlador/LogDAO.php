@@ -1,8 +1,5 @@
 <?php
-/*
-require('conect.php');
-require('operaciones.php');
-*/
+
 class DAOLogin{
 	
 	public function __construct(){
@@ -20,18 +17,23 @@ class DAOLogin{
 		//echo("Los valores que llegaron son: $tipoUser y tambien $nomUser y tambien $passuser");
 		
 		$user = $coneccion;
+		$DataBase = $user->getDB();
 
-		$query = "SELECT SE_tipoUsuario, SE_email, SE_noControl, SE_pass FROM seguimientoegresados.datosalumnos where SE_tipoUsuario = \"".$tipoUser."\" and SE_email = \"".$correo."\" and SE_pass = \"".$passuser."\" and SE_noControl = \"".$numControl."\";";
+		$query = "SELECT * FROM ".$DataBase.".login where user = \"".$tipoUser."\" and mail = \"".$correo."\" and pass = \"".$passuser."\" and control = \"".$numControl."\";";
 
 		$user->queryDB($query);
 
 		
 		while ($fila = $user->getRowsDB()) {
-			$int = strcmp($fila['SE_noControl'], $numControl);
+			$int = strcmp($fila['control'], $numControl);
+			$nombre = $fila['nombre'];
+			$arrayTemp;
 			if($int === 0){
 				$user->closedb();
 				unset($user);
-				return (0);
+				$arrayTemp[0] = 0;
+				$arrayTemp[1] = $nombre;
+				return ($arrayTemp);
 				break;
 			}
 		}

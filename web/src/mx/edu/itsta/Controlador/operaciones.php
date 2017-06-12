@@ -1,6 +1,7 @@
  <?php
 class operationDB extends connectionDB{
 	private $result;
+	private $db;
 
 	function operationDB(){
 		connectionDB::connectionDB();
@@ -14,6 +15,10 @@ class operationDB extends connectionDB{
 		return $this->result;
 	}
 
+	public function getDB(){
+		return $this->getDataBase();
+	}
+	
 	public function getRowsDB(){
 		if ($rowsDB = mysql_fetch_array($this->getResult(),MYSQL_ASSOC)){
 			return $rowsDB;

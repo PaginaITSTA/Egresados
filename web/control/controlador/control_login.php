@@ -19,13 +19,17 @@ $claseLogin->__setPass($arrLogin[3]);
 require("../../src/mx/edu/itsta/Controlador/Buss.php");
 $ClaseBuss = new Buss();
 
-if(($ClaseBuss->validUser($claseLogin)) == 0){
+$arrayRespuesta = $ClaseBuss->validUser($claseLogin);
+$a = $arrayRespuesta[0];
+$b = $arrayRespuesta[1];
+if($a === 0){
 	//---------------------------------------------------
 	$_SESSION["tipoUser"] = $arrLogin[0];
 	$_SESSION["user"] = $arrLogin[1];
 	$_SESSION['noControl'] = $arrLogin[2];
+	$_SESSION['nombreUsuario'] = $b;
 	//---------------------------------------------------
-	unset($ClaseBuss);
+	unset($ClaseBuss, $a, $b, $arrayRespuesta);
 	header('location: ../dashboard.php');
 	die();
 }else{

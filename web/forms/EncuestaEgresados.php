@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_SESSION['tipoUser'])){
-	if($_SESSION['tipoUser']  == "Alumno" ){
+	if($_SESSION['tipoUser']  == "Egresado" ){
 ?>
 <!doctype html>
 <html>

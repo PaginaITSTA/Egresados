@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $arrRegistro = $_POST['cuestionarioEgresados'];
 
 require("../../src/mx/edu/itsta/DTO/registroDTO.php");
@@ -22,6 +24,9 @@ if($ClaseBuss->BussGuardaTemporal($classReg) == 1){
 	header('location: ../login.php');
 	die();
 }else{
+	unset($ClaseBuss);
+	//Aqui para performance
+	$_SESSION['error'] = "Error al tratar de ingresar, revisa tu número de control.";
 	header('location: ../../forms/registro.php');
 	die();
 }

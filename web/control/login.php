@@ -41,7 +41,7 @@ if(isset($_SESSION['tipoUser'])){
 	<?php
 	if(isset($_SESSION['error'])){
 		//$error = $_SESSION['error'];
-		echo "<div class=\"container center-align\">".$_SESSION['error']."</div>";
+		echo "<div class=\"container center-align #f44336 red\">".$_SESSION['error']."</div>";
 	}
 		
 	?>

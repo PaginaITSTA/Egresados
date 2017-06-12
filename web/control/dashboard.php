@@ -16,10 +16,41 @@ if(isset($_SESSION['tipoUser'])){
 </head>
 <?php
 	if($_SESSION['tipoUser'] == "Alumno"){
-		echo "<button id=\"valorOculto\" value=\"".$_SESSION['user']."\" hidden=\"\"></button>";
+		echo "<button id=\"valorOculto\" value=\"".$_SESSION['nombreUsuario']."\" hidden=\"\"></button>";
 ?>
 <body>
 
+<nav>
+	<div class="nav-wrapper #37474f blue-grey darken-3">
+	
+		<a href="../index.php" class="brand-logo"><img src="../img/logo1.png">Logo</a>
+		
+		<ul class="right hide-on-med-and-down">
+			<li><a href="../index.php">Inicio</a></li>
+			<li><a href="controlador/CerrarSesion.php">cerrar sesion</a></li>
+		</ul>
+		
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="side-nav" id="mobile-demo">
+			<li><a href="../index.php">Inicio</a></li>
+			<li><a href="controlador/CerrarSesion.php">Cerrar sesion</a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<div class="container">
+
+
+<p><h1>¡Bienvenido Alumno!</h1></p>
+
+
+</div>
+<?php
+	}else if($_SESSION['tipoUser'] == "Egresado"){
+		echo "<button id=\"valorOculto\" value=\"".$_SESSION['nombreUsuario']."\" hidden=\"\"></button>";
+		
+?>
 <ul id="encuesta1" class="dropdown-content">
   <li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
   <li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
@@ -55,7 +86,7 @@ if(isset($_SESSION['tipoUser'])){
 <div class="container">
 
 
-<p><h1>¡Bienvenido Alumno!</h1></p>
+<p><h1>¡Bienvenido Egresado!</h1></p>
 
 
 </div>
@@ -64,7 +95,7 @@ if(isset($_SESSION['tipoUser'])){
 	}else if($_SESSION['tipoUser'] == "Encargado"){
 		
 		//echo "<a id=\"valorOculto\" >".$_SESSION['user']."</a>";
-		echo "<button id=\"valorOculto\" value=\"".$_SESSION['user']."\" hidden=\"\"></button>";
+		echo "<button id=\"valorOculto\" value=\"".$_SESSION['nombreUsuario']."\" hidden=\"\"></button>";
 		
 ?>
 	<body>
@@ -138,7 +169,7 @@ if(isset($_SESSION['tipoUser'])){
 
 <script>
 	//var Usuario = document.getElementById("valorOculto").value;
-	Materialize.toast('Bienvenido ' + document.getElementById("valorOculto").value, 4000)
+	Materialize.toast('Bienvenido ' + document.getElementById("valorOculto").value, 4000, 'rounded')
 	
 	$(document).ready(function(){
 		$(".button-collapse").sideNav();

@@ -16,8 +16,9 @@ class RegistroDAO{
 		$T_tipoAlumno = $classRegistro->__getUser();
 		
 		$user = $connection;
+		$DataBase = $user->getDB();
 		
-		$query = "INSERT INTO `seguimientoegresados`.`temporal` (`T_noControl`, `T_Nombre`, `T_pass`, `T_telefono`, `T_celular`, `T_correo`, `T_sexo`, `T_tipoAlumno`) VALUES ('$T_noControl', '$T_Nombre', '$T_pass', '$T_telefono', '$T_celular', '$T_correo', '$T_sexo', '$T_tipoAlumno');";
+		$query = "INSERT INTO ".$DataBase.".`temporal` (`T_noControl`, `T_Nombre`, `T_pass`, `T_telefono`, `T_celular`, `T_correo`, `T_sexo`, `T_tipoAlumno`) VALUES ('$T_noControl', '$T_Nombre', '$T_pass', '$T_telefono', '$T_celular', '$T_correo', '$T_sexo', '$T_tipoAlumno');";
 		
 		$user->queryDB("START TRANSACTION;");
 		
@@ -38,10 +39,12 @@ class RegistroDAO{
 	
 	public function verTablaTemporal($connection){
 		$user = $connection;
+		$DataBase = $user->getDB();
 		
-		$query = "select * from seguimientoegresados.temporal;";
+		$query = "select * from ".$DataBase.".temporal;";
 		
 		$user->queryDB($query);
+		
 		
 		$tablaTemporal;
 		$contador = 0;
@@ -65,8 +68,8 @@ class RegistroDAO{
 	
 	public function verAlumnos($connection){
 		$user = $connection;
-		
-		$query = "SELECT * FROM seguimientoegresados.ver_alumnos;";
+		$DataBase = $user->getDB();
+		$query = "SELECT * FROM ".$DataBase.".ver_alumnos;";
 		
 		$user->queryDB($query);
 		
