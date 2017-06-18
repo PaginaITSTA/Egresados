@@ -65,7 +65,6 @@ function verTablaAlumnos(){
 }
 
 function verTablaTemporal(){
-	
 	$.ajax({
         url: "controlador/fragmentTablaTemporal.php",
         data: {
