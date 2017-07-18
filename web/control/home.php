@@ -36,21 +36,29 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-4">Bienvenido al seguimiento de egresados</h1>
+        <h1 class="header center teal-text text-lighten-4">Bienvenido al sistema de seguimiento de egresados</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Una forma de realizar tu seguimiento de forma más eficiente</h5>
-        </div>
-        <div class="row center">
-          <a href="../control/login.php" id="login_button" class="btn-large waves-effect waves-light teal lighten-1">Ingresa</a>
+          <a href="../control/login.php" id="login_button" class="btn-large waves-effect waves-light teal lighten-1">Ingresar</a>
         </div>
         <br><br>
       </div>
     </div>
-    <div class="parallax"><img src="../img/background1.gif" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="../img/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 	
 	
-	
+	<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center purple-text text-lighten-5">Instituto Tecnológico Superior de Tantoyuca</h1>
+        <div class="row center">
+          <h5 class="header col s12 light"><b>Una forma de realizar tu seguimiento de forma más eficiente<b></p></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="../img/IMG_8208.JPG" alt="Unsplashed background img 1"></div>
+  </div>
 	
 	<!-- incluir plantilla de footer -->
 	<?php

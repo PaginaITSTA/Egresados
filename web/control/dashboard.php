@@ -54,12 +54,10 @@ if(isset($_SESSION['tipoUser'])){
 <ul id="encuesta1" class="dropdown-content">
   <li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
   <li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
-  <li><a href="#!">three</a></li>
 </ul>
 <ul id="encuesta2" class="dropdown-content">
   <li><a href="../forms/EncuestaEgresados.php">Encuesta Egresados</a></li>
   <li><a href="../forms/CuestionarioEgresados.php">Cuestionario de egresados</a></li>
-  <li><a href="#!">three</a></li>
 </ul>
 
 <nav>

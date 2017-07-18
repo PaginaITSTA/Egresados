@@ -19,6 +19,11 @@
 		</tr>
 	</thead>
 	
+	<!--
+		<button onClick="">No aprobar</button>
+		<input onClick="" />
+	-->
+	
 	<tbody>
 	<?php
 		$tablaTemporal = $claseBuss->BussVerTablaTemporal();
@@ -34,7 +39,7 @@
 				<td>$g</td>
 				<td>
 					<p>
-      					<input type=\"checkbox\" id=\"".$a."aprobado\" />
+      					<input onClick=\"\" type=\"checkbox\" id=\"".$a."aprobado\" />
       					<label for=\"".$a."aprobado\">Aprobar</label>
     				</p>
 				</td>

@@ -25,19 +25,36 @@ if(isset($_SESSION['tipoUser'])){
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		
 		<ul class="right hide-on-med-and-down">
-			<li><a href="#">Información</a></li>
+			<li><a href="#Detalles">Información</a></li>
 			<li><a href="../control/controlador/CerrarSesion.php">Salir</a></li>
 		</ul>
 		
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="#">Información</a></li>
+			<li><a href="#Detalles">Información</a></li>
 			<li><a href="../control/controlador/CerrarSesion.php">Salir</a></li>
 		</ul>
-		
-		
-		
 	</div>
 </nav>
+
+<div id="Detalles" class="modal" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 220.014px;">
+          <div class="modal-content  #aed581 light-green lighten-2">
+            <p><h5><B><font color="blue" face="lucida console"><center>INSTITUTO TECNOLOGICO SUPERIOR DE TANTOYUCA.</center></font><B></h5></p>
+			<p><h5><center><B> INGENIERIA EN SISTEMAS COMPUTACIONALES.<B></center></h5></p></br>
+			<p><h5><center><B><font color="green">Fundamentos de investigación 2.</font><B></center></h5></p></br>
+			<!-- <p><h5><center><B> EQUIPO "A".<B></center></h5></p></br> -->
+			
+			
+			<p><B><h5>Integrantes: </h5></B> </p>
+			<p><B><h6><font color="#0277bd" >Aracely Santiago Fernández.</font></h6></B> </p>
+			<p><B><h6><font color="#0277bd" >Erick Clair Del Angel Del Angel.</font></h6></B> </p>
+			
+			<p><B><h6>  </h6></B> </p>
+          </div>
+          <div class="modal-footer #aed581 light-green lighten-2">
+            <a href="#%21" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
+          </div>
+</div>
+
 	<?php
 	if(isset($_SESSION['error'])){
 		//$error = $_SESSION['error'];
@@ -119,6 +136,7 @@ if(isset($_SESSION['tipoUser'])){
 		$(document).ready(function(){
 			$(".button-collapse").sideNav();
 			$('select').material_select();
+			$('.modal').modal();
 		});
 	</script>
 </body>
