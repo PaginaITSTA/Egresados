@@ -83,7 +83,7 @@ CREATE TABLE `datosalumnos` (
 
 LOCK TABLES `datosalumnos` WRITE;
 /*!40000 ALTER TABLE `datosalumnos` DISABLE KEYS */;
-INSERT INTO `datosalumnos` VALUES ('133s0219',4,'Erick Clair del Ángel del Ángel','Colonia','789-893-4702','789-100-5239','iscEClair@gmail.com','Ingeniero en SIstemas','2013-2017','No',NULL,'Softtech','Si',1,'Administrador',1,'12345678','Masculino','Encargado'),('133s0220',4,'Aracely Santiago Fernanández','Colonia','111-111-1111','111-111-1111','aracely@gmail.com','Ingemiero en Sistemas','2013-2017','No',NULL,'UNAM','No',2,'Administrador',2,'12345678','Femenino','Alumno');
+INSERT INTO `datosalumnos` VALUES ('133s0219',4,'Erick Clair del Ángel del Ángel','Colonia','789-893-4702','789-100-5239','iscEClair@gmail.com','Ingeniero en SIstemas','2013-2017','No',NULL,'Softtech','Si',1,'Administrador',1,'12345678','Masculino','Encargado'),('133s0220',4,'Aracely Santiago Fernanández','Colonia','111-111-1111','111-111-1111','aracely@gmail.com','Ingemiero en Sistemas','2013-2017','No',NULL,'UNAM','No',2,'Administrador',2,'12345678','Femenino','Alumno'),('133s0221',3,'Abraham García Santíago','Colonia','',NULL,'abraham@gmail.com','Ingeniero en Sistemas','2013-2017','No',NULL,'Totaltek','No',1,'Administrador',3,'12345678','Masculino','Egresado');
 /*!40000 ALTER TABLE `datosalumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +125,22 @@ LOCK TABLES `datosencuesta` WRITE;
 /*!40000 ALTER TABLE `datosencuesta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `datosencuesta` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+/*!50001 DROP VIEW IF EXISTS `login`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `login` AS SELECT 
+ 1 AS `user`,
+ 1 AS `nombre`,
+ 1 AS `mail`,
+ 1 AS `control`,
+ 1 AS `pass`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `preguntasencuesta`
@@ -264,7 +280,7 @@ CREATE TABLE `temporal` (
   `T_tipoAlumno` varchar(13) NOT NULL,
   PRIMARY KEY (`IdTemporal`),
   UNIQUE KEY `T_noControl_UNIQUE` (`T_noControl`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,9 +289,73 @@ CREATE TABLE `temporal` (
 
 LOCK TABLES `temporal` WRITE;
 /*!40000 ALTER TABLE `temporal` DISABLE KEYS */;
-INSERT INTO `temporal` VALUES (15,'133s0123','alguien@gmail.com','123','111-111-1111','111-111-1111','alguien@gmail.com','Masculino','Alumno'),(19,'133S0220','Erick Clair','123','111-111-1111','111-111-1111','alguien@gmail.com','Masculino','Alumno'),(21,'133S0219','Erick','123','','','isceclair@gmail.com','Masculino','Encargado'),(22,'133s0221','Alexis Elizalde Mendoza','12345678','111-111-1111','111-111-1111','alexis@gmail.com','Masculino','Egresado');
+INSERT INTO `temporal` VALUES (15,'133s0123','alguien@gmail.com','123','111-111-1111','111-111-1111','alguien@gmail.com','Masculino','Alumno'),(19,'133S0220','Erick Clair','123','111-111-1111','111-111-1111','alguien@gmail.com','Masculino','Alumno'),(22,'133s0221','Alexis Elizalde Mendoza','12345678','111-111-1111','111-111-1111','alexis@gmail.com','Masculino','Egresado'),(26,'133S0222','test de prueba','12345678','','','alguien@gmail.com','Masculino','Alumno'),(28,'133S0225','Agustin Ruiz Flores','123','','','agustin@gmail.com','Masculino','Alumno'),(29,'133s0219','Erick Clair del Ángel','123','789-100-5239','789-100-5239','isceclair@gmail.com','Masculino','Alumno');
 /*!40000 ALTER TABLE `temporal` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `ver_alumnos`
+--
+
+DROP TABLE IF EXISTS `ver_alumnos`;
+/*!50001 DROP VIEW IF EXISTS `ver_alumnos`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `ver_alumnos` AS SELECT 
+ 1 AS `control`,
+ 1 AS `nombre`,
+ 1 AS `carrera`,
+ 1 AS `mail`,
+ 1 AS `telefono`,
+ 1 AS `movil`,
+ 1 AS `egreso`,
+ 1 AS `sexo`,
+ 1 AS `usuario`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping events for database 'seguimientoegresados'
+--
+
+--
+-- Dumping routines for database 'seguimientoegresados'
+--
+
+--
+-- Final view structure for view `login`
+--
+
+/*!50001 DROP VIEW IF EXISTS `login`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `login` AS select `datosalumnos`.`SE_tipoUsuario` AS `user`,`datosalumnos`.`SE_nombre` AS `nombre`,`datosalumnos`.`SE_email` AS `mail`,`datosalumnos`.`SE_noControl` AS `control`,`datosalumnos`.`SE_pass` AS `pass` from `datosalumnos` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `ver_alumnos`
+--
+
+/*!50001 DROP VIEW IF EXISTS `ver_alumnos`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `ver_alumnos` AS select `datosalumnos`.`SE_noControl` AS `control`,`datosalumnos`.`SE_nombre` AS `nombre`,`carrera`.`nom_carrera` AS `carrera`,`datosalumnos`.`SE_email` AS `mail`,`datosalumnos`.`SE_telefono` AS `telefono`,`datosalumnos`.`SE_telMovil` AS `movil`,`datosalumnos`.`SE_pEgreso` AS `egreso`,`datosalumnos`.`SE_sexo` AS `sexo`,`datosalumnos`.`SE_tipoUsuario` AS `usuario` from (`datosalumnos` join `carrera` on((`datosalumnos`.`SE_carrera` = `carrera`.`id_carrera`))) where (`datosalumnos`.`SE_tipoUsuario` = 'Alumno') */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -286,4 +366,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-10 18:16:52
+-- Dump completed on 2018-01-23 14:35:09
